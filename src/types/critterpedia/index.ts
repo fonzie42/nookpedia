@@ -39,5 +39,7 @@ export type BugLocation =
   | 'Under trees'
   | 'Underground'
 
+export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
+
 export type Hemisphere = 'Southern' | 'Northern'
 
