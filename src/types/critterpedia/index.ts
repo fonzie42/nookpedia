@@ -17,5 +17,27 @@ export interface LocalizationString {
 
 export type LocalizationAvailable = keyof LocalizationString
 
+export type BugLocation =
+  | 'Flying by light'
+  | 'Flying near hybrid flowers'
+  | 'Flying'
+  | 'Hitting rocks'
+  | 'Near trash'
+  | 'On beach rocks'
+  | 'On flowers'
+  | 'On palm trees'
+  | 'On ponds and rivers'
+  | 'On rocks (when raining)'
+  | 'On rotten food'
+  | 'On the beach'
+  | 'On the ground'
+  | 'On tree stumps'
+  | 'On trees'
+  | 'On villagers'
+  | 'On white flowers'
+  | 'Shaking trees'
+  | 'Under trees'
+  | 'Underground'
+
 export type Hemisphere = 'Southern' | 'Northern'
 
