@@ -51,3 +51,16 @@ export interface Availability {
   timeArray: number[]
 }
 
+export interface BaseCritter {
+  altCatchPhrase?: string[]
+  availability: Availability
+  catchPhrase: string
+  fileName: string
+  iconUri: string
+  id: number
+  imageUri: string
+  museumPhrase: string
+  name: LocalizationString
+  price: number
+  priceExtra: number
+}
