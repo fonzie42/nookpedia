@@ -15,5 +15,7 @@ export interface LocalizationString {
   'zh-TW': string
 }
 
+export type LocalizationAvailable = keyof LocalizationString
+
 export type Hemisphere = 'Southern' | 'Northern'
 
