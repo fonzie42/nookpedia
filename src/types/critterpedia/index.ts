@@ -43,3 +43,11 @@ export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
 
 export type Hemisphere = 'Southern' | 'Northern'
 
+export interface Availability {
+  location: BugLocation
+  northern: number[]
+  rarity: Rarity
+  southern: number[]
+  timeArray: number[]
+}
+
