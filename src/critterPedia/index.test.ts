@@ -1,5 +1,6 @@
-import { mergeOrCreateDataWithCritter } from 'critterPedia'
 import { UserCritterpediaData } from 'types/critterpedia/personal'
+
+import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
 
 type genericTypeWithId = { id: number }
 type genericTypeWithIdAndCritter = genericTypeWithId & UserCritterpediaData
@@ -53,5 +54,25 @@ describe('mergeOrCreateDataWithCritter', () => {
       )
       return id
     })
+  })
+})
+
+describe('updateCritterInList', () => {
+  it('should return a new list with an updated critter, given a new critter and the original list', () => {
+    const [critter] = arrayWithUserCritterpediaData
+    const updatedCritter = {
+      ...critter,
+      isDonatedToMuseum: !critter.isDonatedToMuseum,
+      isRegisteredOnCritterPedia: !critter.isRegisteredOnCritterPedia,
+    }
+
+    const output = updateCritterInList<genericTypeWithIdAndCritter>(
+      updatedCritter,
+      arrayWithUserCritterpediaData,
+    )
+
+    expect(output.length === arrayWithUserCritterpediaData.length).toBeTruthy()
+    expect(output === arrayWithUserCritterpediaData).toBeFalsy()
+    expect(output.indexOf(critter) === -1).toBeTruthy()
   })
 })

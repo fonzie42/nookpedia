@@ -37,3 +37,11 @@ export const mergeOrCreateDataWithCritter = <
   critterPediaData.length === 0
     ? createUserCritterPediaData<U, T>(data)
     : mergeDataWithUserCritterPedia<U, T>(critterPediaData, data)
+
+export const updateCritterInList = <U extends { id: number }>(
+  updatedCritter: U,
+  allCritter: U[],
+): U[] =>
+  allCritter.map((critter) =>
+    critter.id !== updatedCritter.id ? critter : updatedCritter,
+  )
