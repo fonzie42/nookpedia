@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/nookpedia/precache-manifest.771ba0fc25e135716b641b1280e564f5.js"
+  "/nookpedia/precache-manifest.0b61273ef30560a67fc8b7db57f2444c.js"
 );
 
 self.addEventListener('message', (event) => {
