@@ -1668,7 +1668,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
     },
     availability: {
       northern: [4, 5, 6, 7, 8],
-      southern: [11, 12, 1, 2],
+      southern: [10, 11, 12, 1, 2],
       location: 'On tree stumps',
       rarity: 'Uncommon',
       timeArray: [
