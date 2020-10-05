@@ -41,7 +41,7 @@ export type BugLocation =
 
 export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
 
-export type Hemisphere = 'Southern' | 'Northern'
+export type Hemisphere = 'southern' | 'northern'
 
 export interface Availability {
   location: BugLocation
