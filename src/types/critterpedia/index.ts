@@ -56,7 +56,7 @@ export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
 export type Hemisphere = 'southern' | 'northern'
 
 export interface Availability {
-  location: BugLocation
+  location: BugLocation | FishLocation
   northern: number[]
   rarity: Rarity
   southern: number[]
