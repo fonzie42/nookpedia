@@ -41,6 +41,16 @@ export type BugLocation =
   | 'Under trees'
   | 'Underground'
 
+export type FishLocation =
+  | 'Pier'
+  | 'Pond'
+  | 'River (Clifftop) & Pond'
+  | 'River (Clifftop)'
+  | 'River (Mouth)'
+  | 'River'
+  | 'Sea'
+  | 'Sea (when raining or snowing)'
+
 export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
 
 export type Hemisphere = 'southern' | 'northern'
