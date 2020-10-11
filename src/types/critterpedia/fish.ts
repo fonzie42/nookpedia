@@ -1,21 +1,21 @@
-import { BaseCritter } from 'types/critterpedia'
-import { UserCritterpediaData } from './personal'
+import {
+  Availability,
+  BaseCritter,
+  FishLocation,
+  ShadowSize,
+  UserCritterPediaData,
+} from 'types/critterpedia'
 
-export type ShadowSize =
-  | 'Narrow'
-  | 'Smallest (1)'
-  | 'Small (2)'
-  | 'Medium (3)'
-  | 'Medium (4)'
-  | 'Medium with fin (4)'
-  | 'Large (5)'
-  | 'Largest (6)'
-  | 'Largest with fin (6)'
+type FishAvailabity = Availability & { location: FishLocation }
 
 export interface CritterpediaFish extends BaseCritter {
+  availability: FishAvailabity
   shadow: ShadowSize
 }
 
 export interface UserCritterPediaFish
-  extends CritterpediaFish,
-    UserCritterpediaData {}
+  extends UserCritterPediaData,
+    CritterpediaFish {
+  availability: FishAvailabity
+  shadow: ShadowSize
+}

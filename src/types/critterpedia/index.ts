@@ -51,6 +51,17 @@ export type FishLocation =
   | 'Sea'
   | 'Sea (when raining or snowing)'
 
+export type ShadowSize =
+  | 'Narrow'
+  | 'Smallest (1)'
+  | 'Small (2)'
+  | 'Medium (3)'
+  | 'Medium (4)'
+  | 'Medium with fin (4)'
+  | 'Large (5)'
+  | 'Largest (6)'
+  | 'Largest with fin (6)'
+
 export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
 
 export type Hemisphere = 'southern' | 'northern'
@@ -75,4 +86,15 @@ export interface BaseCritter {
   name: LocalizationString
   price: number
   priceExtra: number
+  shadow?: ShadowSize
 }
+
+export interface PersonalCritterPediaData {
+  id: number
+  isDonatedToMuseum: boolean
+  isRegisteredOnCritterPedia: boolean
+}
+
+export interface UserCritterPediaData
+  extends BaseCritter,
+    PersonalCritterPediaData {}

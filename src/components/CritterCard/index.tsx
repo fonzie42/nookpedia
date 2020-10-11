@@ -1,21 +1,21 @@
-import React, { FC } from 'react'
+import React from 'react'
 import './critter-card.css'
-import { UserCritterPediaBugs } from 'types/critterpedia/bug'
-import { Hemisphere, LocalizationAvailable } from 'types/critterpedia'
+import { Hemisphere, LocalizationAvailable, UserCritterPediaData } from 'types/critterpedia'
 import { monthIntToString } from 'parser'
 
-interface CritterCardProps {
-  critter: UserCritterPediaBugs
+interface CritterCardProps<T extends UserCritterPediaData> {
+  critter: T
   hemisphere: Hemisphere
   locale: LocalizationAvailable
-  updateCritterCallback: (updatedCritter: UserCritterPediaBugs) => void
+  updateCritterCallback: (updatedCritter: T) => void
 }
 
-export const CritterCard: FC<CritterCardProps> = ({
+
+export const CritterCard = <T extends UserCritterPediaData>({
   critter,
   locale,
   updateCritterCallback,
-}) => {
+}: CritterCardProps<T>): JSX.Element => {
   const monthStart = monthIntToString({
     language: 'en-US',
     month: critter.availability.southern[0],
