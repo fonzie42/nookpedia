@@ -21,6 +21,7 @@ export type BugLocation =
   | 'Flying by light'
   | 'Flying near hybrid flowers'
   | 'Flying'
+  | 'Flying (near water)'
   | 'Hitting rocks'
   | 'Near trash'
   | 'On beach rocks'
@@ -28,6 +29,7 @@ export type BugLocation =
   | 'On palm trees'
   | 'On ponds and rivers'
   | 'On rocks (when raining)'
+  | 'On rocks and bush (when raining)'
   | 'On rotten food'
   | 'On the beach'
   | 'On the ground'
@@ -39,12 +41,33 @@ export type BugLocation =
   | 'Under trees'
   | 'Underground'
 
+export type FishLocation =
+  | 'Pier'
+  | 'Pond'
+  | 'River (Clifftop) & Pond'
+  | 'River (Clifftop)'
+  | 'River (Mouth)'
+  | 'River'
+  | 'Sea'
+  | 'Sea (when raining or snowing)'
+
+export type ShadowSize =
+  | 'Narrow'
+  | 'Smallest (1)'
+  | 'Small (2)'
+  | 'Medium (3)'
+  | 'Medium (4)'
+  | 'Medium with fin (4)'
+  | 'Large (5)'
+  | 'Largest (6)'
+  | 'Largest with fin (6)'
+
 export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
 
 export type Hemisphere = 'southern' | 'northern'
 
 export interface Availability {
-  location: BugLocation
+  location: BugLocation | FishLocation
   northern: number[]
   rarity: Rarity
   southern: number[]
@@ -63,4 +86,15 @@ export interface BaseCritter {
   name: LocalizationString
   price: number
   priceExtra: number
+  shadow?: ShadowSize
 }
+
+export interface PersonalCritterPediaData {
+  id: number
+  isDonatedToMuseum: boolean
+  isRegisteredOnCritterPedia: boolean
+}
+
+export interface UserCritterPediaData
+  extends BaseCritter,
+    PersonalCritterPediaData {}

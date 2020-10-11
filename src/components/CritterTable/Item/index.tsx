@@ -1,12 +1,16 @@
-import React, { VFC } from 'react'
-import { UserCritterPediaBugs } from 'types/critterpedia/bug'
+import React from 'react'
+import { UserCritterPediaData } from 'types/critterpedia'
 
-type Props = {
-  critter: UserCritterPediaBugs
+type Props<T extends UserCritterPediaData> = {
+  critter: T
 }
 
-export const Item: VFC<Props> = ({ critter }) => (
-  <div>
-    <img src={critter.iconUri} alt={critter.name['en-US']} />
-  </div>
-)
+export function Item<T extends UserCritterPediaData>({
+  critter,
+}: Props<T>): JSX.Element {
+  return (
+    <div>
+      <img src={critter.iconUri} alt={critter.name['en-US']} />
+    </div>
+  )
+}

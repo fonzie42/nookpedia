@@ -1,9 +1,9 @@
-import { UserCritterpediaData } from 'types/critterpedia/personal'
+import { PersonalCritterPediaData } from 'types/critterpedia'
 
 const getPersonalCritterById = (
   id: number,
-  critterPediaData: UserCritterpediaData[],
-): UserCritterpediaData => critterPediaData.find((bug) => bug.id === id)!
+  critterPediaData: PersonalCritterPediaData[],
+): PersonalCritterPediaData => critterPediaData.find((bug) => bug.id === id)!
 
 const createUserCritterPediaData = <U, T extends unknown>(data: U[]): T[] =>
   data.map((item) => ({
@@ -16,7 +16,7 @@ const mergeDataWithUserCritterPedia = <
   U extends { id: number },
   T extends unknown
 >(
-  critterPediaData: UserCritterpediaData[],
+  critterPediaData: PersonalCritterPediaData[],
   bugs: U[],
 ): T[] =>
   bugs.map((bug) => {
@@ -31,7 +31,7 @@ export const mergeOrCreateDataWithCritter = <
   U extends { id: number },
   T extends unknown
 >(
-  critterPediaData: UserCritterpediaData[],
+  critterPediaData: PersonalCritterPediaData[],
   data: U[],
 ): T[] =>
   critterPediaData.length === 0

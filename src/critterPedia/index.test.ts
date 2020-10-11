@@ -1,9 +1,8 @@
-import { UserCritterpediaData } from 'types/critterpedia/personal'
-
 import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
+import { PersonalCritterPediaData } from 'types/critterpedia'
 
 type genericTypeWithId = { id: number }
-type genericTypeWithIdAndCritter = genericTypeWithId & UserCritterpediaData
+type genericTypeWithIdAndCritter = genericTypeWithId & PersonalCritterPediaData
 
 const arrayWithGenericIds = [
   { id: 1 },
@@ -18,7 +17,7 @@ const arrayWithUserCritterpediaData = [
   { id: 3, isDonatedToMuseum: true, isRegisteredOnCritterPedia: true },
   { id: 4, isDonatedToMuseum: false, isRegisteredOnCritterPedia: false },
   { id: 5, isDonatedToMuseum: false, isRegisteredOnCritterPedia: false },
-] as UserCritterpediaData[]
+] as PersonalCritterPediaData[]
 
 describe('mergeOrCreateDataWithCritter', () => {
   it('should create default UserCritterPediaData when none is given and merge data with type without UserCritterPediaData to one with it', () => {

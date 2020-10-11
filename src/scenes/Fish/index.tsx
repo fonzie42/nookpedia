@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 
-import CRITTERPEDIA_BUGS from 'data/critterpedia/bugs'
+import CRITTERPEDIA_FISH from 'data/critterpedia/fish'
 import { CritterCard } from 'components/CritterCard'
-import { getBugsFromLocalStorage, persistBugsInLocalStorage } from 'storage'
+import { getFishFromLocalStorage, persistFishInLocalStorage } from 'storage'
 import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
-import { CritterpediaBugs, UserCritterPediaBugs } from 'types/critterpedia/bug'
+import { CritterpediaFish, UserCritterPediaFish } from 'types/critterpedia/fish'
 import { filter, filterFunctions } from 'data/filters'
 import { Toggle } from 'components/Toggle'
 import { CritterTable } from 'components/CritterTable'
@@ -16,9 +16,9 @@ type Filters = {
   isPresentOnCurrentMonth?: boolean
 }
 
-const Bugs = () => {
+const Fish = () => {
   const [personalCritter, setPersonalCritter] = useState<
-    UserCritterPediaBugs[]
+    UserCritterPediaFish[]
   >([])
 
   const [activeFilters, setActiveFilters] = useState<Filters>({
@@ -28,24 +28,24 @@ const Bugs = () => {
   })
 
   useEffect(() => {
-    const { bugs } = CRITTERPEDIA_BUGS
-    const userData = getBugsFromLocalStorage()
+    const { fish } = CRITTERPEDIA_FISH
+    const userData = getFishFromLocalStorage()
     const firstPersonalCritter = mergeOrCreateDataWithCritter<
-      CritterpediaBugs,
-      UserCritterPediaBugs
-    >(userData, bugs)
+      CritterpediaFish,
+      UserCritterPediaFish
+    >(userData, fish)
     setPersonalCritter(firstPersonalCritter)
   }, [])
 
   useEffect(() => {
-    persistBugsInLocalStorage(personalCritter)
+    persistFishInLocalStorage(personalCritter)
   }, [personalCritter])
 
   const updateCritter = (
-    updatedCritter: UserCritterPediaBugs,
-    critterList: UserCritterPediaBugs[],
-  ): UserCritterPediaBugs[] =>
-    updateCritterInList<UserCritterPediaBugs>(updatedCritter, critterList)
+    updatedCritter: UserCritterPediaFish,
+    critterList: UserCritterPediaFish[],
+  ): UserCritterPediaFish[] =>
+    updateCritterInList<UserCritterPediaFish>(updatedCritter, critterList)
 
   const filters = [
     activeFilters.isDonatedToMuseum !== undefined &&
@@ -62,7 +62,8 @@ const Bugs = () => {
     (item): item is (critter: UserCritterPediaData) => boolean => item !== false,
   )
 
-  const showCritter: UserCritterPediaBugs[] = filter({
+
+  const showCritter: UserCritterPediaFish[] = filter({
     critter: personalCritter,
     filters,
   })
@@ -108,4 +109,4 @@ const Bugs = () => {
     </div>
   )
 }
-export default Bugs
+export default Fish
