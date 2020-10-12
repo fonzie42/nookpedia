@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a16ad8293717d7376b36ea4563d16923",
+    "revision": "a8edc433aef658c40452009ec395b86a",
     "url": "/nookpedia/index.html"
   },
   {
-    "revision": "2144836568c9f93950fc",
-    "url": "/nookpedia/static/css/main.235cbe11.chunk.css"
+    "revision": "f0892496cce1154b45e7",
+    "url": "/nookpedia/static/css/main.1860c682.chunk.css"
   },
   {
     "revision": "7faabe12bbeb1060bc30",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/nookpedia/static/js/2.c57d81ec.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2144836568c9f93950fc",
-    "url": "/nookpedia/static/js/main.db14768d.chunk.js"
+    "revision": "f0892496cce1154b45e7",
+    "url": "/nookpedia/static/js/main.5903304a.chunk.js"
   },
   {
     "revision": "a09e315c240e30c45e63",

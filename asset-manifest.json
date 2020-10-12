@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/nookpedia/static/css/main.235cbe11.chunk.css",
-    "main.js": "/nookpedia/static/js/main.db14768d.chunk.js",
-    "main.js.map": "/nookpedia/static/js/main.db14768d.chunk.js.map",
+    "main.css": "/nookpedia/static/css/main.1860c682.chunk.css",
+    "main.js": "/nookpedia/static/js/main.5903304a.chunk.js",
+    "main.js.map": "/nookpedia/static/js/main.5903304a.chunk.js.map",
     "runtime-main.js": "/nookpedia/static/js/runtime-main.d44a6ccf.js",
     "runtime-main.js.map": "/nookpedia/static/js/runtime-main.d44a6ccf.js.map",
     "static/js/2.c57d81ec.chunk.js": "/nookpedia/static/js/2.c57d81ec.chunk.js",
     "static/js/2.c57d81ec.chunk.js.map": "/nookpedia/static/js/2.c57d81ec.chunk.js.map",
     "index.html": "/nookpedia/index.html",
-    "precache-manifest.159f2b379039b9c9dac1d835bfbc3cb6.js": "/nookpedia/precache-manifest.159f2b379039b9c9dac1d835bfbc3cb6.js",
+    "precache-manifest.6b56fab5cd61953444d92bbb0b355f9c.js": "/nookpedia/precache-manifest.6b56fab5cd61953444d92bbb0b355f9c.js",
     "service-worker.js": "/nookpedia/service-worker.js",
-    "static/css/main.235cbe11.chunk.css.map": "/nookpedia/static/css/main.235cbe11.chunk.css.map",
+    "static/css/main.1860c682.chunk.css.map": "/nookpedia/static/css/main.1860c682.chunk.css.map",
     "static/js/2.c57d81ec.chunk.js.LICENSE.txt": "/nookpedia/static/js/2.c57d81ec.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d44a6ccf.js",
     "static/js/2.c57d81ec.chunk.js",
-    "static/css/main.235cbe11.chunk.css",
-    "static/js/main.db14768d.chunk.js"
+    "static/css/main.1860c682.chunk.css",
+    "static/js/main.5903304a.chunk.js"
   ]
 }
