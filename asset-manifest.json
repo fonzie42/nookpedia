@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/nookpedia/static/css/main.1860c682.chunk.css",
-    "main.js": "/nookpedia/static/js/main.5903304a.chunk.js",
-    "main.js.map": "/nookpedia/static/js/main.5903304a.chunk.js.map",
+    "main.css": "/nookpedia/static/css/main.48f58e0d.chunk.css",
+    "main.js": "/nookpedia/static/js/main.2f945885.chunk.js",
+    "main.js.map": "/nookpedia/static/js/main.2f945885.chunk.js.map",
     "runtime-main.js": "/nookpedia/static/js/runtime-main.d44a6ccf.js",
     "runtime-main.js.map": "/nookpedia/static/js/runtime-main.d44a6ccf.js.map",
-    "static/js/2.c57d81ec.chunk.js": "/nookpedia/static/js/2.c57d81ec.chunk.js",
-    "static/js/2.c57d81ec.chunk.js.map": "/nookpedia/static/js/2.c57d81ec.chunk.js.map",
+    "static/js/2.e1d804d5.chunk.js": "/nookpedia/static/js/2.e1d804d5.chunk.js",
+    "static/js/2.e1d804d5.chunk.js.map": "/nookpedia/static/js/2.e1d804d5.chunk.js.map",
     "index.html": "/nookpedia/index.html",
-    "precache-manifest.6b56fab5cd61953444d92bbb0b355f9c.js": "/nookpedia/precache-manifest.6b56fab5cd61953444d92bbb0b355f9c.js",
+    "precache-manifest.e1587e4fce9aa857a96a07db8a9754b7.js": "/nookpedia/precache-manifest.e1587e4fce9aa857a96a07db8a9754b7.js",
     "service-worker.js": "/nookpedia/service-worker.js",
-    "static/css/main.1860c682.chunk.css.map": "/nookpedia/static/css/main.1860c682.chunk.css.map",
-    "static/js/2.c57d81ec.chunk.js.LICENSE.txt": "/nookpedia/static/js/2.c57d81ec.chunk.js.LICENSE.txt"
+    "static/css/main.48f58e0d.chunk.css.map": "/nookpedia/static/css/main.48f58e0d.chunk.css.map",
+    "static/js/2.e1d804d5.chunk.js.LICENSE.txt": "/nookpedia/static/js/2.e1d804d5.chunk.js.LICENSE.txt",
+    "static/media/critter.png": "/nookpedia/static/media/critter.c9a6eddc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d44a6ccf.js",
-    "static/js/2.c57d81ec.chunk.js",
-    "static/css/main.1860c682.chunk.css",
-    "static/js/main.5903304a.chunk.js"
+    "static/js/2.e1d804d5.chunk.js",
+    "static/css/main.48f58e0d.chunk.css",
+    "static/js/main.2f945885.chunk.js"
   ]
 }
