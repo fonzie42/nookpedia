@@ -1,0 +1,9 @@
+.background {
+  &--animated {
+    display: none;
+  }
+
+  &--fallback {
+    display: inline;
+  }
+}
