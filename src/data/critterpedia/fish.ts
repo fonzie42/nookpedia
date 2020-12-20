@@ -3852,4 +3852,5 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 ]
 
-export default { fish: CRITTERPEDIA_FISH, version: '0.0.2' }
+const fish = { fish: CRITTERPEDIA_FISH, version: '0.0.2' }
+export default fish
