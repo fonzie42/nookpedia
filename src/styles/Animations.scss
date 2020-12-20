@@ -1,0 +1,11 @@
+@keyframes random-polka {
+  0% {
+    background-position: 0 0, 25px 25px;
+  }
+  50% {
+    background-position: 150px 150px, 100px 100px;
+  }
+  100% {
+    background-position: 0 0, 25px 25px;
+  }
+}
