@@ -1,23 +1,20 @@
 {
   "files": {
-    "main.css": "/nookpedia/static/css/main.67cedf00.chunk.css",
-    "main.js": "/nookpedia/static/js/main.eea8e64a.chunk.js",
-    "main.js.map": "/nookpedia/static/js/main.eea8e64a.chunk.js.map",
-    "runtime-main.js": "/nookpedia/static/js/runtime-main.d44a6ccf.js",
-    "runtime-main.js.map": "/nookpedia/static/js/runtime-main.d44a6ccf.js.map",
-    "static/js/2.87a3b883.chunk.js": "/nookpedia/static/js/2.87a3b883.chunk.js",
-    "static/js/2.87a3b883.chunk.js.map": "/nookpedia/static/js/2.87a3b883.chunk.js.map",
+    "main.css": "/nookpedia/static/css/main.613f938d.chunk.css",
+    "main.js": "/nookpedia/static/js/main.65213870.chunk.js",
+    "main.js.map": "/nookpedia/static/js/main.65213870.chunk.js.map",
+    "runtime-main.js": "/nookpedia/static/js/runtime-main.e6e9dcec.js",
+    "runtime-main.js.map": "/nookpedia/static/js/runtime-main.e6e9dcec.js.map",
+    "static/js/2.af183483.chunk.js": "/nookpedia/static/js/2.af183483.chunk.js",
+    "static/js/2.af183483.chunk.js.map": "/nookpedia/static/js/2.af183483.chunk.js.map",
     "index.html": "/nookpedia/index.html",
-    "precache-manifest.0a72873ed30e78c73e0bf5b0aecce50f.js": "/nookpedia/precache-manifest.0a72873ed30e78c73e0bf5b0aecce50f.js",
-    "service-worker.js": "/nookpedia/service-worker.js",
-    "static/css/main.67cedf00.chunk.css.map": "/nookpedia/static/css/main.67cedf00.chunk.css.map",
-    "static/js/2.87a3b883.chunk.js.LICENSE.txt": "/nookpedia/static/js/2.87a3b883.chunk.js.LICENSE.txt",
-    "static/media/critter.png": "/nookpedia/static/media/critter.c9a6eddc.png"
+    "static/css/main.613f938d.chunk.css.map": "/nookpedia/static/css/main.613f938d.chunk.css.map",
+    "static/js/2.af183483.chunk.js.LICENSE.txt": "/nookpedia/static/js/2.af183483.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d44a6ccf.js",
-    "static/js/2.87a3b883.chunk.js",
-    "static/css/main.67cedf00.chunk.css",
-    "static/js/main.eea8e64a.chunk.js"
+    "static/js/runtime-main.e6e9dcec.js",
+    "static/js/2.af183483.chunk.js",
+    "static/css/main.613f938d.chunk.css",
+    "static/js/main.65213870.chunk.js"
   ]
 }
