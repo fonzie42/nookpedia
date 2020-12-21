@@ -1,0 +1,82 @@
+.critter-icon {
+  $root: &;
+  position: relative;
+  border-radius: 25%;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  padding: 0;
+  border: none;
+
+  &__critter {
+    z-index: 1;
+    position: absolute;
+    width: 46%;
+    top: 11%;
+    left: 7%;
+    transform: rotate(-15deg) scaleX(100%);
+
+    &--center {
+      scale: 1.5;
+      top: 26%;
+      left: 26%;
+    }
+
+    #{$root}:focus > &,
+    #{$root}:hover > & {
+      animation: wings-flapping 1.75s infinite;
+    }
+  }
+
+  &__fish {
+    z-index: 1;
+    position: absolute;
+    width: 52%;
+    bottom: 14%;
+    left: 27%;
+
+    &--center {
+      width: 75%;
+      bottom: 29%;
+      left: 12%;
+    }
+
+    #{$root}:focus > &,
+    #{$root}:hover > & {
+      animation: fish-bouncing 2s infinite;
+    }
+  }
+
+  &__sea-creature {
+    z-index: 1;
+    position: absolute;
+    transform: rotate(15deg) scaleX(100%);
+    width: 35%;
+    top: 7%;
+    right: 9%;
+
+    &--center {
+      scale: 1.5;
+      top: 25%;
+      right: 32%;
+    }
+
+    #{$root}:focus > &,
+    #{$root}:hover > & {
+      animation: sea-creature-swimming 1.5s infinite;
+    }
+  }
+
+  &:focus .base-background,
+  &:hover .base-background {
+    display: block;
+  }
+
+  &--reveal {
+    animation: critter-icon-reveal 2s;
+  }
+
+  &--leaving {
+    animation: critter-icon-leaving 2s forwards;
+  }
+}
