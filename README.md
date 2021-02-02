@@ -1,3 +1,12 @@
+# Nookpedia
+- This is a passion project, to help you with your Animal Crossing game! It may come late, but better late then sorry.
+
+## Tools
+- The project uses Create React App, and ASDF.
+    - You'll need ADSF installed 
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
