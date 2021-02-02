@@ -10,54 +10,6 @@
   }
 }
 
-@keyframes ripple-1 {
-  0% {
-    transform: translate(-50%, -50%) scale(0.1);
-    z-index: 2;
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 2;
-  }
-
-  95% {
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 1;
-  }
-
-  100% {
-    transform: translate(-50%, -50%) scale(0.1);
-    z-index: 2;
-  }
-}
-
-@keyframes ripple-2 {
-  0% {
-    z-index: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-
-  49.99% {
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 1;
-  }
-
-  50% {
-    transform: translate(-50%, -50%) scale(0.1);
-    z-index: 2;
-  }
-
-  99.99% {
-    transform: translate(-50%, -50%) scale(1);
-    z-index: 2;
-  }
-
-  100% {
-    z-index: 1;
-  }
-}
-
 @keyframes wings-flapping {
   0% {
     transform: rotate(-15deg) scaleX(100%);
@@ -143,6 +95,54 @@
 
   100% {
     transform: rotate(15deg) scaleY(100%);
+  }
+}
+
+@keyframes ripple-1 {
+  0% {
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: 2;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 2;
+  }
+
+  95% {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: 2;
+  }
+}
+
+@keyframes ripple-2 {
+  0% {
+    z-index: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  49.99% {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(0.1);
+    z-index: 2;
+  }
+
+  99.99% {
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 2;
+  }
+
+  100% {
+    z-index: 1;
   }
 }
 

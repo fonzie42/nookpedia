@@ -1,10 +1,10 @@
 import { VFC } from 'react'
 
-import { BaseBackground } from '../BaseBackground'
+import { Background } from '../Background'
 import './polka.scss'
 
 export const Polka: VFC = () => (
-  <BaseBackground
+  <Background
     animatedClassName="polka polka--animated"
     fallbackClassName="polka"
   />
