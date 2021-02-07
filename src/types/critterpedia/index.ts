@@ -64,7 +64,10 @@ export type ShadowSize =
 
 export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
 
-export type Hemisphere = 'southern' | 'northern'
+export enum Hemisphere {
+  SOUTHERN = 'southern',
+  NORTHERN = 'northern',
+}
 
 export interface Availability {
   location: BugLocation | FishLocation
