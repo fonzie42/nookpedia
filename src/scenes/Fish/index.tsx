@@ -6,14 +6,14 @@ import { getFishFromLocalStorage, persistFishInLocalStorage } from 'storage'
 import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
 import { CritterpediaFish, UserCritterPediaFish } from 'types/critterpedia/fish'
 import { filter, filterFunctions } from 'data/filters'
-import { Toggle } from 'components/Toggle'
+import { Toggle } from 'ui/Toggle'
 import { CritterTable } from 'components/CritterTable'
 import { UserCritterPediaData } from 'types/critterpedia'
 
 type Filters = {
-  isDonatedToMuseum?: boolean
-  isRegisteredOnCritterPedia?: boolean
-  isPresentOnCurrentMonth?: boolean
+  isDonatedToMuseum: boolean | null
+  isRegisteredOnCritterPedia: boolean | null
+  isPresentOnCurrentMonth: boolean | null
 }
 
 const Fish = () => {
@@ -22,9 +22,9 @@ const Fish = () => {
   >([])
 
   const [activeFilters, setActiveFilters] = useState<Filters>({
-    isDonatedToMuseum: undefined,
-    isRegisteredOnCritterPedia: undefined,
-    isPresentOnCurrentMonth: undefined,
+    isDonatedToMuseum: null,
+    isRegisteredOnCritterPedia: null,
+    isPresentOnCurrentMonth: null,
   })
 
   useEffect(() => {
@@ -48,20 +48,20 @@ const Fish = () => {
     updateCritterInList<UserCritterPediaFish>(updatedCritter, critterList)
 
   const filters = [
-    activeFilters.isDonatedToMuseum !== undefined &&
+    activeFilters.isDonatedToMuseum !== null &&
       filterFunctions.donatedToMusem(activeFilters.isDonatedToMuseum),
 
-    activeFilters.isRegisteredOnCritterPedia !== undefined &&
+    activeFilters.isRegisteredOnCritterPedia !== null &&
       filterFunctions.registeredInCritterPedia(
         activeFilters.isRegisteredOnCritterPedia,
       ),
 
-    activeFilters.isPresentOnCurrentMonth !== undefined &&
+    activeFilters.isPresentOnCurrentMonth !== null &&
       filterFunctions.isPresentOnCurrentMonth('southern', 10),
   ].filter(
-    (item): item is (critter: UserCritterPediaData) => boolean => item !== false,
+    (item): item is (critter: UserCritterPediaData) => boolean =>
+      item !== false,
   )
-
 
   const showCritter: UserCritterPediaFish[] = filter({
     critter: personalCritter,
