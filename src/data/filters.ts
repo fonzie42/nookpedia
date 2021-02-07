@@ -1,4 +1,5 @@
 import { Hemisphere, UserCritterPediaData } from 'types/critterpedia'
+import { getRealCurrentMonth } from '../utils/getRealCurrentMonth'
 
 export type FilterFunction<T extends UserCritterPediaData> = (
   critter: T,
@@ -14,11 +15,22 @@ const registeredInCritterPedia = <T extends UserCritterPediaData>(
 ): FilterFunction<T> => ({ isRegisteredOnCritterPedia }: T) =>
   shouldBeRegistered ? isRegisteredOnCritterPedia : !isRegisteredOnCritterPedia
 
-const isPresentOnCurrentMonth = <T extends UserCritterPediaData>(
-  hemisphere: Hemisphere,
-  month: number,
-): FilterFunction<T> => ({ availability }: T) =>
-  !!availability[hemisphere].find((item) => item === month)
+type IsPresentOnCurrentMonthProps = {
+  hemisphere: Hemisphere
+  isPresent?: boolean
+}
+
+const isPresentOnCurrentMonth = <T extends UserCritterPediaData>({
+  hemisphere,
+  isPresent = true,
+}: IsPresentOnCurrentMonthProps): FilterFunction<T> => ({
+  availability,
+}: T) => {
+  const currentMonth = getRealCurrentMonth()
+  const presentOnMonth = availability[hemisphere].includes(currentMonth)
+
+  return isPresent ? presentOnMonth : !presentOnMonth
+}
 
 type filterProps<T extends UserCritterPediaData> = {
   critter: T[]
