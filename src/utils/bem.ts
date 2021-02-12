@@ -48,13 +48,16 @@ const addModifier = ({
 }: AddModifierProps): string =>
   addSuffix({ base, suffix, spacing: SPACING.MODIFIER_SPACING })
 
-
 const addElement = ({
   block: base,
   element: suffix,
 }: AddElementProps): string =>
-  addSuffix({ base, suffix, spacing: SPACING.ELEMENT_SPACING, shouldSuppressBase: true })
-
+  addSuffix({
+    base,
+    suffix,
+    spacing: SPACING.ELEMENT_SPACING,
+    shouldSuppressBase: true,
+  })
 
 export const bem = ({ block, element, modifier }: BemProps): string => {
   const blockElement = addElement({ block, element })

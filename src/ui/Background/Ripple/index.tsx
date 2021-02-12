@@ -1,11 +1,13 @@
 import { VFC } from 'react'
 
+import { BACKGROUND } from 'types/animations'
+
 import { Background } from '../Background'
 import './ripple.scss'
 
 export const Ripple: VFC = () => (
   <Background animatedClassName="ripple" fallbackClassName="ripple">
-    <div className="ripple__background ripple__background--1" />
-    <div className="ripple__background ripple__background--2" />
+    <div className={BACKGROUND.RIPPLE_1} />
+    <div className={BACKGROUND.RIPPLE_2} />
   </Background>
 )
