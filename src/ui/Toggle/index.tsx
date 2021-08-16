@@ -1,8 +1,8 @@
 import React, { VFC } from 'react'
 
 type ToggleProps = {
-  currentState?: boolean
-  onCurrentStateCallback: (selected?: boolean) => void
+  currentState?: boolean | null
+  onCurrentStateCallback: (selected: boolean | null) => void
 }
 
 export const Toggle: VFC<ToggleProps> = ({
@@ -13,7 +13,7 @@ export const Toggle: VFC<ToggleProps> = ({
     <div>
       <button onClick={() => onCurrentStateCallback(true)}>Yes</button>
       <button onClick={() => onCurrentStateCallback(false)}>No</button>
-      <button onClick={() => onCurrentStateCallback(undefined)}>Clear</button>
+      <button onClick={() => onCurrentStateCallback(null)}>Clear</button>
     </div>
   )
 }

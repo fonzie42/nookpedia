@@ -5,27 +5,15 @@ import { CritterCard } from 'components/CritterCard'
 import { getBugsFromLocalStorage, persistBugsInLocalStorage } from 'storage'
 import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
 import { CritterpediaBugs, UserCritterPediaBugs } from 'types/critterpedia/bug'
-import { filter, filterFunctions } from 'data/filters'
-import { Toggle } from 'components/Toggle'
+import { Toggle } from 'ui/Toggle'
 import { CritterTable } from 'components/CritterTable'
-import { UserCritterPediaData } from 'types/critterpedia'
-
-type Filters = {
-  isDonatedToMuseum?: boolean
-  isRegisteredOnCritterPedia?: boolean
-  isPresentOnCurrentMonth?: boolean
-}
+import { Hemisphere } from 'types/critterpedia'
+import { UseFilters } from 'hooks/useFilters'
 
 const Bugs = () => {
   const [personalCritter, setPersonalCritter] = useState<
     UserCritterPediaBugs[]
   >([])
-
-  const [activeFilters, setActiveFilters] = useState<Filters>({
-    isDonatedToMuseum: undefined,
-    isRegisteredOnCritterPedia: undefined,
-    isPresentOnCurrentMonth: undefined,
-  })
 
   useEffect(() => {
     const { bugs } = CRITTERPEDIA_BUGS
@@ -47,57 +35,29 @@ const Bugs = () => {
   ): UserCritterPediaBugs[] =>
     updateCritterInList<UserCritterPediaBugs>(updatedCritter, critterList)
 
-  const filters = [
-    activeFilters.isDonatedToMuseum !== undefined &&
-      filterFunctions.donatedToMusem(activeFilters.isDonatedToMuseum),
+  const {
+    filteredData,
+    setFilter: {
+      setIsDonatedToMuseumFilter,
+      setIsPresentOnCurrentMonthFilter,
+      setIsRegisteredOnCritterPediaFilter,
+    },
+  } = UseFilters({ data: personalCritter })
 
-    activeFilters.isRegisteredOnCritterPedia !== undefined &&
-      filterFunctions.registeredInCritterPedia(
-        activeFilters.isRegisteredOnCritterPedia,
-      ),
-
-    activeFilters.isPresentOnCurrentMonth !== undefined &&
-      filterFunctions.isPresentOnCurrentMonth('southern', 10),
-  ].filter(
-    (item): item is (critter: UserCritterPediaData) => boolean => item !== false,
-  )
-
-  const showCritter: UserCritterPediaBugs[] = filter({
-    critter: personalCritter,
-    filters,
-  })
   return (
     <div>
       Donated To Museum
-      <Toggle
-        onCurrentStateCallback={(selected) =>
-          setActiveFilters({ ...activeFilters, isDonatedToMuseum: selected })
-        }
-      />
+      <Toggle onCurrentStateCallback={setIsDonatedToMuseumFilter} />
       Registered On CritterPedia
-      <Toggle
-        onCurrentStateCallback={(selected) =>
-          setActiveFilters({
-            ...activeFilters,
-            isRegisteredOnCritterPedia: selected,
-          })
-        }
-      />
+      <Toggle onCurrentStateCallback={setIsRegisteredOnCritterPediaFilter} />
       Present On Current Month
-      <Toggle
-        onCurrentStateCallback={(selected) =>
-          setActiveFilters({
-            ...activeFilters,
-            isPresentOnCurrentMonth: selected,
-          })
-        }
-      />
-      {showCritter.length}
+      <Toggle onCurrentStateCallback={setIsPresentOnCurrentMonthFilter} />
+      {filteredData.length}
       <CritterTable data={personalCritter} />
-      {showCritter.map((bug) => (
+      {filteredData.map((bug) => (
         <CritterCard
           critter={bug}
-          hemisphere={'southern'}
+          hemisphere={Hemisphere.SOUTHERN}
           locale={'en-US'}
           key={bug.id}
           updateCritterCallback={(updatedBug) => {
