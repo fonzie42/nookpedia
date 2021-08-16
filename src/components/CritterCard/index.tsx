@@ -1,15 +1,8 @@
 import React from 'react'
 import './critter-card.css'
-import { Hemisphere, LocalizationAvailable, UserCritterPediaData } from 'types/critterpedia'
+import {  UserCritterPediaData } from 'types/critterpedia'
 import { monthIntToString } from 'parser'
-
-interface CritterCardProps<T extends UserCritterPediaData> {
-  critter: T
-  hemisphere: Hemisphere
-  locale: LocalizationAvailable
-  updateCritterCallback: (updatedCritter: T) => void
-}
-
+import { CritterCardProps } from './types'
 
 export const CritterCard = <T extends UserCritterPediaData>({
   critter,

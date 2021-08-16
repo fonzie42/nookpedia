@@ -1,9 +1,6 @@
 import React, { VFC } from 'react'
+import { ToggleProps } from './types'
 
-type ToggleProps = {
-  currentState?: boolean | null
-  onCurrentStateCallback: (selected: boolean | null) => void
-}
 
 export const Toggle: VFC<ToggleProps> = ({
   currentState,

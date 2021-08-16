@@ -1,13 +1,10 @@
 import React, { FC } from 'react'
 import './background.scss'
 import cc from 'classcat'
+import { BaseBackgroundProps } from './types'
 
-type props = {
-  animatedClassName: string
-  fallbackClassName: string
-}
 
-export const BaseBackground: FC<props> = ({
+export const BaseBackground: FC<BaseBackgroundProps> = ({
   children,
   animatedClassName,
   fallbackClassName,

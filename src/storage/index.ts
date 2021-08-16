@@ -1,8 +1,7 @@
 import { PersonalCritterPediaData } from 'types/critterpedia'
 import { UserCritterPediaBugs } from 'types/critterpedia/bug'
 import { UserCritterPediaFish } from 'types/critterpedia/fish'
-
-type LocalStorageTypes = 'bugs' | 'fish'
+import { LocalStorageTypes } from './types'
 
 const persistCritterInLocalStorage = (
   critter: UserCritterPediaBugs[] | UserCritterPediaFish[],

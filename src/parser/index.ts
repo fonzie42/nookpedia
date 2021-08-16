@@ -1,27 +1,19 @@
-interface monthIntToStringProps {
-  month: number
-  language: string
-}
+import { HourIntToFormattedStringProps, MonthIntToStringProps } from "./types"
 
 export const monthIntToString = ({
   month,
   language,
-}: monthIntToStringProps) => {
+}: MonthIntToStringProps) => {
   const dateToExtractMonthLocale = new Date(Date.UTC(2042, month, 1, 1, 1, 1))
   return dateToExtractMonthLocale.toLocaleDateString(language, {
     month: 'long',
   })
 }
 
-interface hourIntToFormattedStringProps {
-  hour: number
-  format: '12h' | '24h'
-}
-
 export const hourIntToFormattedString = ({
   hour,
   format,
-}: hourIntToFormattedStringProps): string =>
+}: HourIntToFormattedStringProps): string =>
   format === '24h' ? intTo24hFormatHour(hour) : intTo12hFormatHour(hour)
 
 const intTo12hFormatHour = (hour: number): string => {
