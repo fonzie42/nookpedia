@@ -1,4 +1,5 @@
 import { UserCritterPediaData } from 'types/critterpedia'
+
 import { ItemProps } from './types'
 
 export function Item<T extends UserCritterPediaData>({

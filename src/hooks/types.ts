@@ -1,4 +1,3 @@
-
 enum FiltersAvailable {
   isDonatedToMuseum = 'isDonatedToMuseum',
   isRegisteredOnCritterPedia = 'isRegisteredOnCritterPedia',

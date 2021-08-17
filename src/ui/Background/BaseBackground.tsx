@@ -1,8 +1,9 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
+
 import './background.scss'
 import cc from 'classcat'
-import { BaseBackgroundProps } from './types'
 
+import { BaseBackgroundProps } from './types'
 
 export const BaseBackground: FC<BaseBackgroundProps> = ({
   children,

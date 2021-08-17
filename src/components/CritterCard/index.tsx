@@ -1,7 +1,8 @@
-import React from 'react'
 import './critter-card.css'
-import {  UserCritterPediaData } from 'types/critterpedia'
 import { monthIntToString } from 'parser'
+
+import { UserCritterPediaData } from 'types/critterpedia'
+
 import { CritterCardProps } from './types'
 
 export const CritterCard = <T extends UserCritterPediaData>({

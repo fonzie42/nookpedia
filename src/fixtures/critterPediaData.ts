@@ -1,4 +1,5 @@
 import BUGS_CRITTER from 'data/critterpedia/bugs'
+
 import { UserCritterPediaBugs } from 'types/critterpedia/bug'
 
 type createCritterPediaDataProps = {
@@ -18,8 +19,8 @@ export const createCritterPediaData = ({
     (item) =>
       ({
         ...item,
-        isRegisteredOnCritterPedia: isRegisteredOnCritterPedia,
-        isDonatedToMuseum: isDonatedToMuseum,
+        isRegisteredOnCritterPedia,
+        isDonatedToMuseum,
         availability: {
           ...item.availability,
           southern: monthsAvailability ?? item.availability.southern,

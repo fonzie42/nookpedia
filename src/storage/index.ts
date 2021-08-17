@@ -1,15 +1,16 @@
 import { PersonalCritterPediaData } from 'types/critterpedia'
 import { UserCritterPediaBugs } from 'types/critterpedia/bug'
 import { UserCritterPediaFish } from 'types/critterpedia/fish'
+
 import { LocalStorageTypes } from './types'
 
 const persistCritterInLocalStorage = (
   critter: UserCritterPediaBugs[] | UserCritterPediaFish[],
   type: LocalStorageTypes,
 ): void => {
-  const userData = (critter as Array<
-    UserCritterPediaBugs | UserCritterPediaFish
-  >).map(({ id, isRegisteredOnCritterPedia, isDonatedToMuseum }) => ({
+  const userData = (
+    critter as Array<UserCritterPediaBugs | UserCritterPediaFish>
+  ).map(({ id, isRegisteredOnCritterPedia, isDonatedToMuseum }) => ({
     id,
     isRegisteredOnCritterPedia,
     isDonatedToMuseum,

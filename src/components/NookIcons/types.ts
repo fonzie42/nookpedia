@@ -1,4 +1,3 @@
-
 export type IconOptions = 'fish' | 'sea-creature' | 'critter'
 
 export interface CritterPediaIconProps {
@@ -7,4 +6,3 @@ export interface CritterPediaIconProps {
   revealAnimation?: boolean
   selectedIcon?: IconOptions
 }
-

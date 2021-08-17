@@ -1,10 +1,11 @@
-import React from 'react'
+import { UserCritterPediaData } from 'types/critterpedia'
 import { UserCritterPediaBugs } from 'types/critterpedia/bug'
 import { UserCritterPediaFish } from 'types/critterpedia/fish'
+
 import { Item } from './Item'
-import './CritterTable.css'
-import { UserCritterPediaData } from 'types/critterpedia'
 import { CritterTableProps } from './types'
+
+import './CritterTable.css'
 
 export function CritterTable<T extends UserCritterPediaData>({
   data,

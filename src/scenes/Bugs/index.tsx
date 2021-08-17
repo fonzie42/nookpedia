@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import CRITTERPEDIA_BUGS from 'data/critterpedia/bugs'
-import { CritterCard } from 'components/CritterCard'
-import { getBugsFromLocalStorage, persistBugsInLocalStorage } from 'storage'
 import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
+import CRITTERPEDIA_BUGS from 'data/critterpedia/bugs'
+import { getBugsFromLocalStorage, persistBugsInLocalStorage } from 'storage'
+
+import { CritterCard } from 'components/CritterCard'
+import { CritterTable } from 'components/CritterTable'
+import { UseFilters } from 'hooks/useFilters'
+import { Hemisphere } from 'types/critterpedia'
 import { CritterpediaBugs, UserCritterPediaBugs } from 'types/critterpedia/bug'
 import { Toggle } from 'ui/Toggle'
-import { CritterTable } from 'components/CritterTable'
-import { Hemisphere } from 'types/critterpedia'
-import { UseFilters } from 'hooks/useFilters'
 
 const Bugs = () => {
   const [personalCritter, setPersonalCritter] = useState<

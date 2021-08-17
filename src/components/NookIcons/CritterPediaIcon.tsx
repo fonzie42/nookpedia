@@ -1,14 +1,14 @@
-import React, { VFC } from 'react'
+import { VFC } from 'react'
 import './CritterPediaIcon.scss'
 
 import critterIcon from 'assets/nookIcons/critter.png'
 import fishIcon from 'assets/nookIcons/fish.png'
 import seaCreatureIcon from 'assets/nookIcons/sea_creature.png'
+import cc from 'classcat'
+
 import { BackgroundPolka, BackgroundRipple } from 'ui/Background'
 
-import cc from 'classcat'
 import { CritterPediaIconProps, IconOptions } from './types'
-
 
 const createIconClassName = (
   selectedIcon: IconOptions,

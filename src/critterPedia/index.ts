@@ -14,22 +14,20 @@ const createUserCritterPediaData = <U, T extends unknown>(data: U[]): T[] =>
 
 const mergeDataWithUserCritterPedia = <
   U extends { id: number },
-  T extends unknown
+  T extends unknown,
 >(
   critterPediaData: PersonalCritterPediaData[],
   bugs: U[],
 ): T[] =>
   bugs.map((bug) => {
-    const {
-      isRegisteredOnCritterPedia,
-      isDonatedToMuseum,
-    } = getPersonalCritterById(bug.id, critterPediaData)
+    const { isRegisteredOnCritterPedia, isDonatedToMuseum } =
+      getPersonalCritterById(bug.id, critterPediaData)
     return { ...bug, isRegisteredOnCritterPedia, isDonatedToMuseum }
   }) as T[]
 
 export const mergeOrCreateDataWithCritter = <
   U extends { id: number },
-  T extends unknown
+  T extends unknown,
 >(
   critterPediaData: PersonalCritterPediaData[],
   data: U[],
