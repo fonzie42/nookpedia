@@ -1,6 +1,7 @@
-import { filter, filterFunctions } from './filters'
-import { Hemisphere } from 'types/critterpedia'
 import { createCritterPediaData } from 'fixtures/critterPediaData'
+import { Hemisphere } from 'types/critterpedia'
+
+import { filter, filterFunctions } from './filters'
 
 describe('filter', () => {
   describe('donatedToMusem', () => {

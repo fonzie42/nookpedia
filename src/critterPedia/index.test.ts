@@ -1,4 +1,5 @@
 import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
+
 import { PersonalCritterPediaData } from 'types/critterpedia'
 
 type genericTypeWithId = { id: number }

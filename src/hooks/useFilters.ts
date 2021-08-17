@@ -1,20 +1,10 @@
 import { useState } from 'react'
+
 import { filter, filterFunctions } from 'data/filters'
+
 import { Hemisphere, UserCritterPediaData } from 'types/critterpedia'
 
-enum FiltersAvailable {
-  isDonatedToMuseum = 'isDonatedToMuseum',
-  isRegisteredOnCritterPedia = 'isRegisteredOnCritterPedia',
-  isPresentOnCurrentMonth = 'isPresentOnCurrentMonth',
-}
-
-type Filters = {
-  [key in FiltersAvailable]: boolean | null
-}
-
-type UseFiltersProps<T> = {
-  data: T[]
-}
+import { Filters, UseFiltersProps } from './types'
 
 export function UseFilters<T extends UserCritterPediaData>({
   data,

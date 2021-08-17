@@ -1,4 +1,5 @@
-import React, { VFC } from 'react'
+import { VFC } from 'react'
+
 import { BaseBackground } from '../BaseBackground'
 import './ripple.scss'
 

@@ -1,4 +1,3 @@
-import React from 'react'
 import Bugs from './Bugs'
 import Fish from './Fish'
 

@@ -1,28 +1,7 @@
-interface monthIntToStringProps {
-  month: number
-  language: string
-}
+import { HourIntToFormattedStringProps, MonthIntToStringProps } from './types'
 
-export const monthIntToString = ({
-  month,
-  language,
-}: monthIntToStringProps) => {
-  const dateToExtractMonthLocale = new Date(Date.UTC(2042, month, 1, 1, 1, 1))
-  return dateToExtractMonthLocale.toLocaleDateString(language, {
-    month: 'long',
-  })
-}
-
-interface hourIntToFormattedStringProps {
-  hour: number
-  format: '12h' | '24h'
-}
-
-export const hourIntToFormattedString = ({
-  hour,
-  format,
-}: hourIntToFormattedStringProps): string =>
-  format === '24h' ? intTo24hFormatHour(hour) : intTo12hFormatHour(hour)
+const intTo24hFormatHour = (hour: number): string =>
+  hour.toString().padStart(2, '0') + ':00'
 
 const intTo12hFormatHour = (hour: number): string => {
   if (hour === 12) {
@@ -34,5 +13,18 @@ const intTo12hFormatHour = (hour: number): string => {
   }
 }
 
-const intTo24hFormatHour = (hour: number): string =>
-  hour.toString().padStart(2, '0') + ':00'
+export const monthIntToString = ({
+  month,
+  language,
+}: MonthIntToStringProps) => {
+  const dateToExtractMonthLocale = new Date(Date.UTC(2042, month, 1, 1, 1, 1))
+  return dateToExtractMonthLocale.toLocaleDateString(language, {
+    month: 'long',
+  })
+}
+
+export const hourIntToFormattedString = ({
+  hour,
+  format,
+}: HourIntToFormattedStringProps): string =>
+  format === '24h' ? intTo24hFormatHour(hour) : intTo12hFormatHour(hour)

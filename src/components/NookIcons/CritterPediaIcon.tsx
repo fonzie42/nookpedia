@@ -1,24 +1,17 @@
-import React, { VFC } from 'react'
+import { VFC } from 'react'
 import './CritterPediaIcon.scss'
 
 import critterIcon from 'assets/nookIcons/critter.png'
 import fishIcon from 'assets/nookIcons/fish.png'
 import seaCreatureIcon from 'assets/nookIcons/sea_creature.png'
-import { BackgroundPolka, BackgroundRipple } from 'ui/Background'
-
 import cc from 'classcat'
 
-type iconOptions = 'fish' | 'sea-creature' | 'critter'
+import { BackgroundPolka, BackgroundRipple } from 'ui/Background'
 
-type props = {
-  onClick: () => void
-  animation?: 'reveal' | 'leaving'
-  revealAnimation?: boolean
-  selectedIcon?: iconOptions
-}
+import { CritterPediaIconProps, IconOptions } from './types'
 
 const createIconClassName = (
-  selectedIcon: iconOptions,
+  selectedIcon: IconOptions,
   isSolo: boolean,
 ): string =>
   cc([
@@ -26,7 +19,7 @@ const createIconClassName = (
     isSolo && `critter-icon__${selectedIcon}--center`,
   ])
 
-const getIconImage = (selectedIcon: iconOptions): string => {
+const getIconImage = (selectedIcon: IconOptions): string => {
   const icons = {
     critter: critterIcon,
     fish: fishIcon,
@@ -35,7 +28,7 @@ const getIconImage = (selectedIcon: iconOptions): string => {
   return icons[selectedIcon]
 }
 
-const createIcon: VFC<{ icon: iconOptions; isSolo: boolean }> = ({
+const createIcon: VFC<{ icon: IconOptions; isSolo: boolean }> = ({
   icon,
   isSolo,
 }) => (
@@ -47,7 +40,7 @@ const createIcon: VFC<{ icon: iconOptions; isSolo: boolean }> = ({
   />
 )
 
-const createIcons: VFC<{ soloIcon?: iconOptions }> = ({ soloIcon }) =>
+const createIcons: VFC<{ soloIcon?: IconOptions }> = ({ soloIcon }) =>
   !!soloIcon ? (
     createIcon({ icon: soloIcon, isSolo: true })
   ) : (
@@ -58,7 +51,7 @@ const createIcons: VFC<{ soloIcon?: iconOptions }> = ({ soloIcon }) =>
     </>
   )
 
-export const CritterPediaIcon: VFC<props> = ({
+export const CritterPediaIcon: VFC<CritterPediaIconProps> = ({
   onClick,
   animation,
   selectedIcon,

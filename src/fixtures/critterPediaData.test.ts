@@ -1,4 +1,5 @@
 import BUGS from 'data/critterpedia/bugs'
+
 import { createCritterPediaData } from './critterPediaData'
 
 describe('createCritterPediaData', () => {
