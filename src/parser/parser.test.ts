@@ -3,6 +3,7 @@ import {
   firstAndLastFromArray,
   hourIntToFormattedString,
   monthIntToString,
+  monthIntervalsFromRange,
 } from 'parser'
 
 const monthTestItems = [
@@ -146,3 +147,40 @@ describe('firstAndLastFromArray', () => {
   })
 })
 
+describe('monthIntervalsFromRange', () => {
+  it('translate a continuous number interval to a string containing beginning and end', () => {
+    const continuousMonths = [1, 2, 3, 4, 5]
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('Jan - May')
+  })
+
+  it('translate a non continuous number interval to a string containing multiple beginnings and ends', () => {
+    const continuousMonths = [1, 2, 4, 5, 7, 8, 10, 11]
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('Jan - Feb, Apr - May, Jul - Aug, Oct - Nov')
+  })
+
+  it('returns an empty string given an empty array', () => {
+    const continuousMonths: number[] = []
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('')
+  })
+
+  it('returns a single month given an array with only one element', () => {
+    const continuousMonths = [1]
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('Jan')
+  })
+})

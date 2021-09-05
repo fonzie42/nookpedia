@@ -1,3 +1,5 @@
+import { LocalizationAvailable } from 'types/critterpedia'
+
 import { HourIntToFormattedStringProps, MonthIntToStringProps } from './types'
 
 const intTo24hFormatHour = (hour: number): string =>
@@ -77,3 +79,105 @@ export const firstAndLastFromArray = <T>(
   return { first: array[0], last: array[length - 1] }
 }
 
+const splitArray = ({
+  currentIndex,
+  splitIndex,
+  range,
+  splitZones,
+}: {
+  currentIndex: number
+  splitIndex: number
+  range: number[]
+  splitZones: number[]
+}) => {
+  if (currentIndex === 0) {
+    return range.slice(0, splitIndex)
+  }
+  if (currentIndex === splitZones.length - 1) {
+    return range.slice(splitIndex)
+  }
+  return range.slice(splitZones[currentIndex - 1], splitIndex)
+}
+
+const monthIntervalsWithNoSplit = ({
+  range,
+  locale,
+}: {
+  locale: LocalizationAvailable
+  range: number[]
+}) => {
+  const { first, last } = firstAndLastFromArray(range)
+  if (first === null) {
+    return ''
+  }
+  if (last === null) {
+    return monthIntToString({
+      month: first,
+      language: locale,
+      format: 'short',
+    })
+  }
+  return [first, last]
+    .map((month) =>
+      monthIntToString({
+        month,
+        language: locale,
+        format: 'short',
+      }),
+    )
+    .join(' - ')
+}
+
+const monthIntervalsWithSplit = ({
+  range,
+  locale,
+  splitZones,
+}: {
+  locale: LocalizationAvailable
+  range: number[]
+  splitZones: number[]
+}) => {
+  const intervals = [
+    ...splitZones.map((splitIndex, currentIndex) => {
+      const newArray = splitArray({
+        currentIndex,
+        splitIndex,
+        range,
+        splitZones,
+      })
+      const { first, last } = firstAndLastFromArray(newArray)
+      return [first, last]
+    }),
+  ].filter(
+    (interval): interval is number[] =>
+      interval[0] !== null && interval[1] !== null,
+  )
+
+  return intervals
+    .map((months) =>
+      months
+        .map((month) =>
+          monthIntToString({
+            month,
+            language: locale,
+            format: 'short',
+          }),
+        )
+        .join(' - '),
+    )
+    .join(', ')
+}
+
+export const monthIntervalsFromRange = ({
+  range,
+  locale,
+}: {
+  locale: LocalizationAvailable
+  range: number[]
+}) => {
+  const splitZones = findSplitZones(range)
+
+  return splitZones.length === 0
+    ? monthIntervalsWithNoSplit({ range, locale })
+    : monthIntervalsWithSplit({ range, locale, splitZones })
+}
