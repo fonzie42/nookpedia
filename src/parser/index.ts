@@ -29,3 +29,38 @@ export const hourIntToFormattedString = ({
   format,
 }: HourIntToFormattedStringProps): string =>
   format === '24h' ? intTo24hFormatHour(hour) : intTo12hFormatHour(hour)
+
+export const findSplitZones = (range: number[]) => {
+  let i = 1
+  let splitZones: number[] = []
+
+  const LAST_MONTH = 12
+  const FIRST_MONTH = 1
+
+  while (i + 1 < range.length) {
+    const previousIndex = i - 1
+
+    const previousMonthDifferentThanCurrentMonth =
+      range[previousIndex] + 1 !== range[i]
+
+    const previousMonthIsLastMonth = range[previousIndex] === LAST_MONTH
+    const currentMonthIsNotFirstMonth = range[i] !== FIRST_MONTH
+
+    if (
+      (previousMonthDifferentThanCurrentMonth && !previousMonthIsLastMonth) ||
+      (previousMonthIsLastMonth && currentMonthIsNotFirstMonth)
+    ) {
+      splitZones.push(i)
+    }
+    i++
+  }
+
+  const splitZonesLength = splitZones.length
+
+  if (splitZonesLength > 0) {
+    const finalSplitZone = splitZones[splitZonesLength - 1]
+    splitZones.push(finalSplitZone)
+  }
+  return splitZones
+}
+

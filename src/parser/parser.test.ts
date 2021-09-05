@@ -1,4 +1,8 @@
-import { hourIntToFormattedString, monthIntToString } from 'parser'
+import {
+  findSplitZones,
+  hourIntToFormattedString,
+  monthIntToString,
+} from 'parser'
 
 const monthTestItems = [
   { input: 1, expectedShortOutput: 'Jan', expectedLongOutput: 'January' },
@@ -77,3 +81,38 @@ describe('hourIntToFormattedString', () => {
     })
   })
 })
+
+describe('findSplitZones', () => {
+  it('returns an empty interval for continuous numbers from 1 to 12', () => {
+    const continuousMonths = [1, 2, 3, 4, 5]
+    const firstResult = findSplitZones(continuousMonths)
+    expect(firstResult).toEqual([])
+
+    const singleMonth = [1]
+    const secondResult = findSplitZones(singleMonth)
+    expect(secondResult).toEqual([])
+  })
+
+  it('returns an empty interval for a circular interval that goes from 12 to 1', () => {
+    const continuousMonths = [10, 11, 12, 1, 2, 3]
+    const monthsInterval = findSplitZones(continuousMonths)
+    expect(monthsInterval).toEqual([])
+  })
+
+  it('returns the split locations of non continuous intervals from 1 to 12', () => {
+    const nonContinuousMonths = [1, 2, 3, 6, 7, 8]
+    const firstResult = findSplitZones(nonContinuousMonths)
+    expect(firstResult).toEqual([3, 3])
+
+    const multipleSplitPoints = [9, 10, 12, 2, 3]
+    const secondResult = findSplitZones(multipleSplitPoints)
+    expect(secondResult).toEqual([2, 3, 3])
+  })
+
+  it('returns the split locations of circular non continuous intervals from 1 to 12', () => {
+    const nonContinuousInterval = [10, 11, 1, 2, 3]
+    const monthsInterval = findSplitZones(nonContinuousInterval)
+    expect(monthsInterval).toEqual([2, 2])
+  })
+})
+
