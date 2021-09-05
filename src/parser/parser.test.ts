@@ -63,14 +63,14 @@ describe('monthIntToString', () => {
 })
 
 describe('hourIntToFormattedString', () => {
-  it('should translate all numbers from range 0 to 23 to given format (12h)', () => {
+  it('translates all numbers from range 0 to 23 to given format (12h)', () => {
     hourTestItems.map(({ input, expectedOutput12h }) => {
       const output = hourIntToFormattedString({ hour: input, format: '12h' })
       return expect(output).toEqual(expectedOutput12h)
     })
   })
 
-  it('should translate all numbers from range 0 to 23 to given format (24h)', () => {
+  it('translates all numbers from range 0 to 23 to given format (24h)', () => {
     hourTestItems.map(({ input, expectedOutput24h }) => {
       const output = hourIntToFormattedString({ hour: input, format: '24h' })
       return expect(output).toEqual(expectedOutput24h)
