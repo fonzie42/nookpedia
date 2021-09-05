@@ -1,5 +1,6 @@
 import {
   findSplitZones,
+  firstAndLastFromArray,
   hourIntToFormattedString,
   monthIntToString,
 } from 'parser'
@@ -113,6 +114,35 @@ describe('findSplitZones', () => {
     const nonContinuousInterval = [10, 11, 1, 2, 3]
     const monthsInterval = findSplitZones(nonContinuousInterval)
     expect(monthsInterval).toEqual([2, 2])
+  })
+})
+
+describe('firstAndLastFromArray', () => {
+  it('returns first and last from an array', () => {
+    const twoItemsArray = [4, 2]
+    const { first, last } = firstAndLastFromArray(twoItemsArray)
+    expect([first, last]).toEqual(twoItemsArray)
+
+    const variousItemsArray = [4, 0, 0, 0, 0, 0, 0, 0, 2]
+    const expectedVariousOutput = [
+      variousItemsArray[0],
+      variousItemsArray[variousItemsArray.length - 1],
+    ]
+    const { first: variousFirst, last: variousLast } =
+      firstAndLastFromArray(twoItemsArray)
+    expect([variousFirst, variousLast]).toEqual(expectedVariousOutput)
+  })
+
+  it('returns the first item, but last as null with a one item array', () => {
+    const oneItemArray = [1]
+    const { first, last } = firstAndLastFromArray(oneItemArray)
+    expect([first, last]).toEqual([oneItemArray[0], null])
+  })
+
+  it('returns the first and last as null with an empty array', () => {
+    const emptyArray: number[] = []
+    const { first, last } = firstAndLastFromArray(emptyArray)
+    expect([first, last]).toEqual([null, null])
   })
 })
 

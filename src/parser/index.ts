@@ -64,3 +64,16 @@ export const findSplitZones = (range: number[]) => {
   return splitZones
 }
 
+export const firstAndLastFromArray = <T>(
+  array: T[],
+): { first: T | null; last: T | null } => {
+  const length = array.length
+  if (length === 0) {
+    return { first: null, last: null }
+  }
+  if (length === 1) {
+    return { first: array[0], last: null }
+  }
+  return { first: array[0], last: array[length - 1] }
+}
+
