@@ -62,7 +62,9 @@ export type ShadowSize =
   | 'Largest (6)'
   | 'Largest with fin (6)'
 
-export type Rarity = 'Common' | 'Rare' | 'Ultra-rare' | 'Uncommon'
+export const RARITIES = ['Common', 'Uncommon', 'Rare', 'Ultra-rare'] as const
+
+export type Rarity = typeof RARITIES[number]
 
 export enum Hemisphere {
   SOUTHERN = 'southern',
