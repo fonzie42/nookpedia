@@ -21,7 +21,10 @@ export const CritterCard = <T extends UserCritterPediaData>({
   return (
     <div className="bug-card">
       <h2>{critter.name[locale]}</h2>
-      <img src={critter.imageUri} alt={critter.name[locale]} />
+      <img
+        src={process.env.PUBLIC_URL + `/assets/images${critter.filePath}.png`}
+        alt={critter.name[locale]}
+      />
       <ul>
         <li>
           <span>Southern </span>

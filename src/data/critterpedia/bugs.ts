@@ -4,7 +4,7 @@ import { CritterpediaBugs } from 'types/critterpedia/bug'
 
 const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   {
-    fileName: 'common_butterfly',
+    filePath: '/bugs/common_butterfly',
     id: 1,
     name: {
       'de-EU': `Kohlweißling`,
@@ -38,7 +38,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'yellow_butterfly',
+    filePath: '/bugs/yellow_butterfly',
     id: 2,
     name: {
       'de-EU': `Zitronenfalter`,
@@ -72,7 +72,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'tiger_butterfly',
+    filePath: '/bugs/tiger_butterfly',
     id: 3,
     name: {
       'de-EU': `Schwalbenschwanz`,
@@ -106,7 +106,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'peacock_butterfly',
+    filePath: '/bugs/peacock_butterfly',
     id: 4,
     name: {
       'de-EU': `Ritterfalter`,
@@ -140,7 +140,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'common_bluebottle',
+    filePath: '/bugs/common_bluebottle',
     id: 5,
     name: {
       'de-EU': `Kolibrifalter`,
@@ -174,7 +174,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'paper_kite_butterfly',
+    filePath: '/bugs/paper_kite_butterfly',
     id: 6,
     name: {
       'de-EU': `Weiße Baumnymphe`,
@@ -208,7 +208,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'great_purple_emperor',
+    filePath: '/bugs/great_purple_emperor',
     id: 7,
     name: {
       'de-EU': `Japan-Schillerfalter`,
@@ -242,7 +242,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'monarch_butterfly',
+    filePath: '/bugs/monarch_butterfly',
     id: 8,
     name: {
       'de-EU': `Monarchfalter`,
@@ -276,7 +276,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'emperor_butterfly',
+    filePath: '/bugs/emperor_butterfly',
     id: 9,
     name: {
       'de-EU': `Himmelsfalter`,
@@ -310,7 +310,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'agrias_butterfly',
+    filePath: '/bugs/agrias_butterfly',
     id: 10,
     name: {
       'de-EU': `Agrias-Falter`,
@@ -344,7 +344,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'rajah_brookes_birdwing',
+    filePath: '/bugs/rajah_brookes_birdwing',
     id: 11,
     name: {
       'de-EU': `Troides brookiana`,
@@ -378,7 +378,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'queen_alexandras_birdwing',
+    filePath: '/bugs/queen_alexandras_birdwing',
     id: 12,
     name: {
       'de-EU': `Vogelfalter`,
@@ -412,7 +412,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'moth',
+    filePath: '/bugs/moth',
     id: 13,
     name: {
       'de-EU': `Motte`,
@@ -446,7 +446,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'atlas_moth',
+    filePath: '/bugs/atlas_moth',
     id: 14,
     name: {
       'de-EU': `Atlasspinner`,
@@ -480,7 +480,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'madagascan_sunset_moth',
+    filePath: '/bugs/madagascan_sunset_moth',
     id: 15,
     name: {
       'de-EU': `Regenbogenfalter`,
@@ -514,7 +514,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'long_locust',
+    filePath: '/bugs/long_locust',
     id: 16,
     name: {
       'de-EU': `Nasenschrecke`,
@@ -548,7 +548,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'migratory_locust',
+    filePath: '/bugs/migratory_locust',
     id: 17,
     name: {
       'de-EU': `Wanderschrecke`,
@@ -582,7 +582,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'rice_grasshopper',
+    filePath: '/bugs/rice_grasshopper',
     id: 18,
     name: {
       'de-EU': `Heuschrecke`,
@@ -616,7 +616,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'grasshopper',
+    filePath: '/bugs/grasshopper',
     id: 19,
     name: {
       'de-EU': `Grashüpfer`,
@@ -650,7 +650,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'cricket',
+    filePath: '/bugs/cricket',
     id: 20,
     name: {
       'de-EU': `Grille`,
@@ -684,7 +684,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'bell_cricket',
+    filePath: '/bugs/bell_cricket',
     id: 21,
     name: {
       'de-EU': `Singgrille`,
@@ -718,7 +718,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'mantis',
+    filePath: '/bugs/mantis',
     id: 22,
     name: {
       'de-EU': `Gottesanbeterin`,
@@ -752,7 +752,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'orchid_mantis',
+    filePath: '/bugs/orchid_mantis',
     id: 23,
     name: {
       'de-EU': `Orchideenmantis`,
@@ -786,7 +786,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'honeybee',
+    filePath: '/bugs/honeybee',
     id: 24,
     name: {
       'de-EU': `Honigbiene`,
@@ -820,7 +820,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'wasp',
+    filePath: '/bugs/wasp',
     id: 25,
     name: {
       'de-EU': `Wespe`,
@@ -857,7 +857,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'brown_cicada',
+    filePath: '/bugs/brown_cicada',
     id: 26,
     name: {
       'de-EU': `Braunzikade`,
@@ -891,7 +891,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'robust_cicada',
+    filePath: '/bugs/robust_cicada',
     id: 27,
     name: {
       'de-EU': `Hyalessa-Zikade`,
@@ -925,7 +925,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'giant_cicada',
+    filePath: '/bugs/giant_cicada',
     id: 28,
     name: {
       'de-EU': `Riesenzikade`,
@@ -959,7 +959,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'walker_cicada',
+    filePath: '/bugs/walker_cicada',
     id: 29,
     name: {
       'de-EU': `Bergzikade`,
@@ -993,7 +993,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'evening_cicada',
+    filePath: '/bugs/evening_cicada',
     id: 30,
     name: {
       'de-EU': `Abendzikade`,
@@ -1027,7 +1027,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'cicada_shell',
+    filePath: '/bugs/cicada_shell',
     id: 31,
     name: {
       'de-EU': `Zikadenlarvenhaut`,
@@ -1064,7 +1064,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'red_dragonfly',
+    filePath: '/bugs/red_dragonfly',
     id: 32,
     name: {
       'de-EU': `Feuerlibelle`,
@@ -1098,7 +1098,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'darner_dragonfly',
+    filePath: '/bugs/darner_dragonfly',
     id: 33,
     name: {
       'de-EU': `Königslibelle`,
@@ -1132,7 +1132,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'banded_dragonfly',
+    filePath: '/bugs/banded_dragonfly',
     id: 34,
     name: {
       'de-EU': `Quelljungfer`,
@@ -1166,7 +1166,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'damselfly',
+    filePath: '/bugs/damselfly',
     id: 35,
     name: {
       'de-EU': `Wasserjungfer`,
@@ -1203,7 +1203,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'firefly',
+    filePath: '/bugs/firefly',
     id: 36,
     name: {
       'de-EU': `Leuchtkäfer`,
@@ -1237,7 +1237,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'mole_cricket',
+    filePath: '/bugs/mole_cricket',
     id: 37,
     name: {
       'de-EU': `Maulwurfsgrille`,
@@ -1274,7 +1274,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'pondskater',
+    filePath: '/bugs/pondskater',
     id: 38,
     name: {
       'de-EU': `Wasserläufer`,
@@ -1308,7 +1308,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'diving_beetle',
+    filePath: '/bugs/diving_beetle',
     id: 39,
     name: {
       'de-EU': `Schwimmkäfer`,
@@ -1342,7 +1342,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'giant_water_bug',
+    filePath: '/bugs/giant_water_bug',
     id: 40,
     name: {
       'de-EU': `Riesenwanze`,
@@ -1376,7 +1376,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'stinkbug',
+    filePath: '/bugs/stinkbug',
     id: 41,
     name: {
       'de-EU': `Stinkwanze`,
@@ -1413,7 +1413,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'man-faced_stink_bug',
+    filePath: '/bugs/man-faced_stink_bug',
     id: 42,
     name: {
       'de-EU': `Gesichtswanze`,
@@ -1447,7 +1447,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'ladybug',
+    filePath: '/bugs/ladybug',
     id: 43,
     name: {
       'de-EU': `Marienkäfer`,
@@ -1481,7 +1481,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'tiger_beetle',
+    filePath: '/bugs/tiger_beetle',
     id: 44,
     name: {
       'de-EU': `Sandlaufkäfer`,
@@ -1518,7 +1518,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'jewel_beetle',
+    filePath: '/bugs/jewel_beetle',
     id: 45,
     name: {
       'de-EU': `Prachtkäfer`,
@@ -1538,7 +1538,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
     },
     availability: {
       northern: [4, 5, 6, 7, 8],
-      southern: [10, 11, 12, 1, 2],
+      southern: [11, 12, 1, 2],
       location: 'On tree stumps',
       rarity: 'Uncommon',
       timeArray: [
@@ -1555,7 +1555,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'violin_beetle',
+    filePath: '/bugs/violin_beetle',
     id: 46,
     name: {
       'de-EU': `Geigenkäfer`,
@@ -1592,7 +1592,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'citrus_long-horned_beetle',
+    filePath: '/bugs/citrus_long-horned_beetle',
     id: 47,
     name: {
       'de-EU': `Fichtenbock`,
@@ -1629,7 +1629,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'rosalia_batesi_beetle',
+    filePath: '/bugs/rosalia_batesi_beetle',
     id: 48,
     name: {
       'de-EU': `Alpenbock`,
@@ -1666,7 +1666,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'blue_weevil_beetle',
+    filePath: '/bugs/blue_weevil_beetle',
     id: 49,
     name: {
       'de-EU': `Blaurüsselkäfer`,
@@ -1703,7 +1703,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'dung_beetle',
+    filePath: '/bugs/dung_beetle',
     id: 50,
     name: {
       'de-EU': `Mistkäfer`,
@@ -1740,7 +1740,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'earth-boring_dung_beetle',
+    filePath: '/bugs/earth-boring_dung_beetle',
     id: 51,
     name: {
       'de-EU': `Gold-Mistkäfer`,
@@ -1777,7 +1777,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'scarab_beetle',
+    filePath: '/bugs/scarab_beetle',
     id: 52,
     name: {
       'de-EU': `Goldskarabäus`,
@@ -1811,7 +1811,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'drone_beetle',
+    filePath: '/bugs/drone_beetle',
     id: 53,
     name: {
       'de-EU': `Japan-Rosenkäfer`,
@@ -1848,7 +1848,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'goliath_beetle',
+    filePath: '/bugs/goliath_beetle',
     id: 54,
     name: {
       'de-EU': `Goliathkäfer`,
@@ -1882,7 +1882,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'saw_stag',
+    filePath: '/bugs/saw_stag',
     id: 55,
     name: {
       'de-EU': `Sägezahn-Hirschkäfer`,
@@ -1919,7 +1919,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'miyama_stag',
+    filePath: '/bugs/miyama_stag',
     id: 56,
     name: {
       'de-EU': `Hirschkäfer`,
@@ -1956,7 +1956,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'giant_stag',
+    filePath: '/bugs/giant_stag',
     id: 57,
     name: {
       'de-EU': `Riesen-Hirschkäfer`,
@@ -1990,7 +1990,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'rainbow_stag',
+    filePath: '/bugs/rainbow_stag',
     id: 58,
     name: {
       'de-EU': `Pracht-Hirschkäfer`,
@@ -2024,7 +2024,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'cyclommatus_stag',
+    filePath: '/bugs/cyclommatus_stag',
     id: 59,
     name: {
       'de-EU': `Cyclommatus`,
@@ -2058,7 +2058,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'golden_stag',
+    filePath: '/bugs/golden_stag',
     id: 60,
     name: {
       'de-EU': `Allotopus rosenbergi`,
@@ -2092,7 +2092,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'giraffe_stag',
+    filePath: '/bugs/giraffe_stag',
     id: 61,
     name: {
       'de-EU': `Giraffenhirschkäfer`,
@@ -2126,7 +2126,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'horned_dynastid',
+    filePath: '/bugs/horned_dynastid',
     id: 62,
     name: {
       'de-EU': `Nashornkäfer`,
@@ -2160,7 +2160,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'horned_atlas',
+    filePath: '/bugs/horned_atlas',
     id: 63,
     name: {
       'de-EU': `Atlaskäfer`,
@@ -2194,7 +2194,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'horned_elephant',
+    filePath: '/bugs/horned_elephant',
     id: 64,
     name: {
       'de-EU': `Elefantenkäfer`,
@@ -2228,7 +2228,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'horned_hercules',
+    filePath: '/bugs/horned_hercules',
     id: 65,
     name: {
       'de-EU': `Herkuleskäfer`,
@@ -2262,7 +2262,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'walking_stick',
+    filePath: '/bugs/walking_stick',
     id: 66,
     name: {
       'de-EU': `Stabschrecke`,
@@ -2296,7 +2296,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'walking_leaf',
+    filePath: '/bugs/walking_leaf',
     id: 67,
     name: {
       'de-EU': `Blattschrecke`,
@@ -2333,7 +2333,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'bagworm',
+    filePath: '/bugs/bagworm',
     id: 68,
     name: {
       'de-EU': `Sackträger`,
@@ -2370,7 +2370,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'ant',
+    filePath: '/bugs/ant',
     id: 69,
     name: {
       'de-EU': `Ameise`,
@@ -2407,7 +2407,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'hermit_crab',
+    filePath: '/bugs/hermit_crab',
     id: 70,
     name: {
       'de-EU': `Einsiedlerkrebs`,
@@ -2441,7 +2441,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'wharf_roach',
+    filePath: '/bugs/wharf_roach',
     id: 71,
     name: {
       'de-EU': `Ligia exotica`,
@@ -2478,7 +2478,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'fly',
+    filePath: '/bugs/fly',
     id: 72,
     name: {
       'de-EU': `Fliege`,
@@ -2515,7 +2515,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'mosquito',
+    filePath: '/bugs/mosquito',
     id: 73,
     name: {
       'de-EU': `Mücke`,
@@ -2549,7 +2549,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'flea',
+    filePath: '/bugs/flea',
     id: 74,
     name: {
       'de-EU': `Floh`,
@@ -2586,7 +2586,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'snail',
+    filePath: '/bugs/snail',
     id: 75,
     name: {
       'de-EU': `Schnecke`,
@@ -2623,7 +2623,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'pill_bug',
+    filePath: '/bugs/pill_bug',
     id: 76,
     name: {
       'de-EU': `Kugelassel`,
@@ -2657,7 +2657,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'centipede',
+    filePath: '/bugs/centipede',
     id: 77,
     name: {
       'de-EU': `Hundertfüßer`,
@@ -2691,7 +2691,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'spider',
+    filePath: '/bugs/spider',
     id: 78,
     name: {
       'de-EU': `Spinne`,
@@ -2725,7 +2725,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'tarantula',
+    filePath: '/bugs/tarantula',
     id: 79,
     name: {
       'de-EU': `Vogelspinne`,
@@ -2759,7 +2759,7 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 
   {
-    fileName: 'scorpion',
+    filePath: '/bugs/scorpion',
     id: 80,
     name: {
       'de-EU': `Skorpion`,
@@ -2793,5 +2793,4 @@ const CRITTERPEDIA_BUGS: CritterpediaBugs[] = [
   },
 ]
 
-const bugs = { bugs: CRITTERPEDIA_BUGS, version: '0.0.2' }
-export default bugs
+export default { bugs: CRITTERPEDIA_BUGS, version: '0.0.2' }

@@ -81,7 +81,7 @@ export interface BaseCritter {
   altCatchPhrase?: string[]
   availability: Availability
   catchPhrase: string
-  fileName: string
+  filePath: string
   iconUri: string
   id: number
   imageUri: string

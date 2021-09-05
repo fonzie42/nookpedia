@@ -7,7 +7,10 @@ export function Item<T extends UserCritterPediaData>({
 }: ItemProps<T>): JSX.Element {
   return (
     <div>
-      <img src={critter.iconUri} alt={critter.name['en-US']} />
+      <img
+        src={process.env.PUBLIC_URL + `/assets/icons${critter.filePath}.png`}
+        alt={critter.name['en-US']}
+      />
     </div>
   )
 }
