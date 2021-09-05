@@ -5,7 +5,7 @@ import { UserCritterPediaFish } from 'types/critterpedia/fish'
 import { Item } from './Item'
 import { CritterTableProps } from './types'
 
-import './CritterTable.css'
+import './CritterTable.scss'
 
 export function CritterTable<T extends UserCritterPediaData>({
   data,

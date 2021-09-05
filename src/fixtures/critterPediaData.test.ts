@@ -1,14 +1,32 @@
 import BUGS from 'data/critterpedia/bugs'
+import FISH from 'data/critterpedia/fish'
 
 import { createCritterPediaData } from './critterPediaData'
 
 describe('createCritterPediaData', () => {
-  it('returns the array of desired length with unaltared properties', () => {
+  it('returns an array of desired length with unaltared properties from bugs', () => {
     const length = 4
     const createdFixtures = createCritterPediaData({ length })
     expect(createdFixtures.length).toEqual(length)
 
     const dataWithCritter = BUGS.bugs.slice(0, length).map((item) => ({
+      ...item,
+      isDonatedToMuseum: false,
+      isRegisteredOnCritterPedia: false,
+    }))
+
+    expect(createdFixtures).toEqual(dataWithCritter)
+  })
+
+  it('returns an array of desired length with unaltared properties from fish', () => {
+    const length = 4
+    const createdFixtures = createCritterPediaData({
+      length,
+      critterType: 'fish',
+    })
+    expect(createdFixtures.length).toEqual(length)
+
+    const dataWithCritter = FISH.fish.slice(0, length).map((item) => ({
       ...item,
       isDonatedToMuseum: false,
       isRegisteredOnCritterPedia: false,

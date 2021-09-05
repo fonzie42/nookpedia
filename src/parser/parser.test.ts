@@ -1,18 +1,24 @@
-import { hourIntToFormattedString, monthIntToString } from 'parser'
+import {
+  findSplitZones,
+  firstAndLastFromArray,
+  hourIntToFormattedString,
+  monthIntToString,
+  monthIntervalsFromRange,
+} from 'parser'
 
 const monthTestItems = [
-  { input: 1, expectedOutput: 'January' },
-  { input: 2, expectedOutput: 'February' },
-  { input: 3, expectedOutput: 'March' },
-  { input: 4, expectedOutput: 'April' },
-  { input: 5, expectedOutput: 'May' },
-  { input: 6, expectedOutput: 'June' },
-  { input: 7, expectedOutput: 'July' },
-  { input: 8, expectedOutput: 'August' },
-  { input: 9, expectedOutput: 'September' },
-  { input: 10, expectedOutput: 'October' },
-  { input: 11, expectedOutput: 'November' },
-  { input: 12, expectedOutput: 'December' },
+  { input: 1, expectedShortOutput: 'Jan', expectedLongOutput: 'January' },
+  { input: 2, expectedShortOutput: 'Feb', expectedLongOutput: 'February' },
+  { input: 3, expectedShortOutput: 'Mar', expectedLongOutput: 'March' },
+  { input: 4, expectedShortOutput: 'Apr', expectedLongOutput: 'April' },
+  { input: 5, expectedShortOutput: 'May', expectedLongOutput: 'May' },
+  { input: 6, expectedShortOutput: 'Jun', expectedLongOutput: 'June' },
+  { input: 7, expectedShortOutput: 'Jul', expectedLongOutput: 'July' },
+  { input: 8, expectedShortOutput: 'Aug', expectedLongOutput: 'August' },
+  { input: 9, expectedShortOutput: 'Sep', expectedLongOutput: 'September' },
+  { input: 10, expectedShortOutput: 'Oct', expectedLongOutput: 'October' },
+  { input: 11, expectedShortOutput: 'Nov', expectedLongOutput: 'November' },
+  { input: 12, expectedShortOutput: 'Dec', expectedLongOutput: 'December' },
 ]
 
 const hourTestItems = [
@@ -43,26 +49,138 @@ const hourTestItems = [
 ]
 
 describe('monthIntToString', () => {
-  it('should translate all numbers from range 1 to 12 to a full month name', () => {
-    monthTestItems.map(({ input, expectedOutput }) => {
+  it('translates all numbers from range 1 to 12 to a full month name', () => {
+    monthTestItems.map(({ input, expectedLongOutput }) => {
       const output = monthIntToString({ language: 'en-US', month: input })
-      return expect(output).toEqual(expectedOutput)
+      return expect(output).toEqual(expectedLongOutput)
+    })
+  })
+
+  it('translates all numbers from range 1 to 12 to a short month name', () => {
+    monthTestItems.map(({ input, expectedShortOutput }) => {
+      const output = monthIntToString({
+        language: 'en-US',
+        month: input,
+        format: 'short',
+      })
+      return expect(output).toEqual(expectedShortOutput)
     })
   })
 })
 
 describe('hourIntToFormattedString', () => {
-  it('should translate all numbers from range 0 to 23 to given format (12h)', () => {
+  it('translates all numbers from range 0 to 23 to given format (12h)', () => {
     hourTestItems.map(({ input, expectedOutput12h }) => {
       const output = hourIntToFormattedString({ hour: input, format: '12h' })
       return expect(output).toEqual(expectedOutput12h)
     })
   })
 
-  it('should translate all numbers from range 0 to 23 to given format (24h)', () => {
+  it('translates all numbers from range 0 to 23 to given format (24h)', () => {
     hourTestItems.map(({ input, expectedOutput24h }) => {
       const output = hourIntToFormattedString({ hour: input, format: '24h' })
       return expect(output).toEqual(expectedOutput24h)
     })
+  })
+})
+
+describe('findSplitZones', () => {
+  it('returns an empty interval for continuous numbers from 1 to 12', () => {
+    const continuousMonths = [1, 2, 3, 4, 5]
+    const firstResult = findSplitZones(continuousMonths)
+    expect(firstResult).toEqual([])
+
+    const singleMonth = [1]
+    const secondResult = findSplitZones(singleMonth)
+    expect(secondResult).toEqual([])
+  })
+
+  it('returns an empty interval for a circular interval that goes from 12 to 1', () => {
+    const continuousMonths = [10, 11, 12, 1, 2, 3]
+    const monthsInterval = findSplitZones(continuousMonths)
+    expect(monthsInterval).toEqual([])
+  })
+
+  it('returns the split locations of non continuous intervals from 1 to 12', () => {
+    const nonContinuousMonths = [1, 2, 3, 6, 7, 8]
+    const firstResult = findSplitZones(nonContinuousMonths)
+    expect(firstResult).toEqual([3, 3])
+
+    const multipleSplitPoints = [9, 10, 12, 2, 3]
+    const secondResult = findSplitZones(multipleSplitPoints)
+    expect(secondResult).toEqual([2, 3, 3])
+  })
+
+  it('returns the split locations of circular non continuous intervals from 1 to 12', () => {
+    const nonContinuousInterval = [10, 11, 1, 2, 3]
+    const monthsInterval = findSplitZones(nonContinuousInterval)
+    expect(monthsInterval).toEqual([2, 2])
+  })
+})
+
+describe('firstAndLastFromArray', () => {
+  it('returns first and last from an array', () => {
+    const twoItemsArray = [4, 2]
+    const { first, last } = firstAndLastFromArray(twoItemsArray)
+    expect([first, last]).toEqual(twoItemsArray)
+
+    const variousItemsArray = [4, 0, 0, 0, 0, 0, 0, 0, 2]
+    const expectedVariousOutput = [
+      variousItemsArray[0],
+      variousItemsArray[variousItemsArray.length - 1],
+    ]
+    const { first: variousFirst, last: variousLast } =
+      firstAndLastFromArray(twoItemsArray)
+    expect([variousFirst, variousLast]).toEqual(expectedVariousOutput)
+  })
+
+  it('returns the first item, but last as null with a one item array', () => {
+    const oneItemArray = [1]
+    const { first, last } = firstAndLastFromArray(oneItemArray)
+    expect([first, last]).toEqual([oneItemArray[0], null])
+  })
+
+  it('returns the first and last as null with an empty array', () => {
+    const emptyArray: number[] = []
+    const { first, last } = firstAndLastFromArray(emptyArray)
+    expect([first, last]).toEqual([null, null])
+  })
+})
+
+describe('monthIntervalsFromRange', () => {
+  it('translate a continuous number interval to a string containing beginning and end', () => {
+    const continuousMonths = [1, 2, 3, 4, 5]
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('Jan - May')
+  })
+
+  it('translate a non continuous number interval to a string containing multiple beginnings and ends', () => {
+    const continuousMonths = [1, 2, 4, 5, 7, 8, 10, 11]
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('Jan - Feb, Apr - May, Jul - Aug, Oct - Nov')
+  })
+
+  it('returns an empty string given an empty array', () => {
+    const continuousMonths: number[] = []
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('')
+  })
+
+  it('returns a single month given an array with only one element', () => {
+    const continuousMonths = [1]
+    const monthsInterval = monthIntervalsFromRange({
+      locale: 'en-US',
+      range: continuousMonths,
+    })
+    expect(monthsInterval).toBe('Jan')
   })
 })

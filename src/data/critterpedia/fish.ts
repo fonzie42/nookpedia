@@ -4,7 +4,7 @@ import { CritterpediaFish } from 'types/critterpedia/fish'
 
 const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   {
-    fileName: 'bitterling',
+    filePath: '/fish/bitterling',
     id: 1,
     name: {
       'de-EU': `Bitterling`,
@@ -42,7 +42,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'pale_chub',
+    filePath: '/fish/pale_chub',
     id: 2,
     name: {
       'de-EU': `Döbel`,
@@ -77,7 +77,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'crucian_carp',
+    filePath: '/fish/crucian_carp',
     id: 3,
     name: {
       'de-EU': `Karausche`,
@@ -115,7 +115,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'dace',
+    filePath: '/fish/dace',
     id: 4,
     name: {
       'de-EU': `Hasel`,
@@ -150,7 +150,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'carp',
+    filePath: '/fish/carp',
     id: 5,
     name: {
       'de-EU': `Karpfen`,
@@ -188,7 +188,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'koi',
+    filePath: '/fish/koi',
     id: 6,
     name: {
       'de-EU': `Koi-Karpfen`,
@@ -223,7 +223,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'goldfish',
+    filePath: '/fish/goldfish',
     id: 7,
     name: {
       'de-EU': `Goldfisch`,
@@ -261,7 +261,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'pop-eyed_goldfish',
+    filePath: '/fish/pop-eyed_goldfish',
     id: 8,
     name: {
       'de-EU': `Teleskopauge`,
@@ -296,7 +296,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'ranchu_goldfish',
+    filePath: '/fish/ranchu_goldfish',
     id: 9,
     name: {
       'de-EU': `Ranchu`,
@@ -331,7 +331,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'killifish',
+    filePath: '/fish/killifish',
     id: 10,
     name: {
       'de-EU': `Killifisch`,
@@ -369,7 +369,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'crawfish',
+    filePath: '/fish/crawfish',
     id: 11,
     name: {
       'de-EU': `Flusskrebs`,
@@ -407,7 +407,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'soft-shelled_turtle',
+    filePath: '/fish/soft-shelled_turtle',
     id: 12,
     name: {
       'de-EU': `Weichschildkröte`,
@@ -442,7 +442,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'snapping_turtle',
+    filePath: '/fish/snapping_turtle',
     id: 13,
     name: {
       'de-EU': `Schnappschildkröte`,
@@ -477,7 +477,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'tadpole',
+    filePath: '/fish/tadpole',
     id: 14,
     name: {
       'de-EU': `Kaulquappe`,
@@ -515,7 +515,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'frog',
+    filePath: '/fish/frog',
     id: 15,
     name: {
       'de-EU': `Frosch`,
@@ -553,7 +553,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'freshwater_goby',
+    filePath: '/fish/freshwater_goby',
     id: 16,
     name: {
       'de-EU': `Flussgrundel`,
@@ -588,7 +588,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'loach',
+    filePath: '/fish/loach',
     id: 17,
     name: {
       'de-EU': `Bachschmerle`,
@@ -626,7 +626,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'catfish',
+    filePath: '/fish/catfish',
     id: 18,
     name: {
       'de-EU': `Katzenwels`,
@@ -661,7 +661,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'giant_snakehead',
+    filePath: '/fish/giant_snakehead',
     id: 19,
     name: {
       'de-EU': `Schlangenkopf`,
@@ -696,7 +696,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'bluegill',
+    filePath: '/fish/bluegill',
     id: 20,
     name: {
       'de-EU': `Sonnenbarsch`,
@@ -731,7 +731,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'yellow_perch',
+    filePath: '/fish/yellow_perch',
     id: 21,
     name: {
       'de-EU': `Flussbarsch`,
@@ -769,7 +769,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'black_bass',
+    filePath: '/fish/black_bass',
     id: 22,
     name: {
       'de-EU': `Barsch`,
@@ -807,7 +807,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'tilapia',
+    filePath: '/fish/tilapia',
     id: 23,
     name: {
       'de-EU': `Tilapia`,
@@ -845,7 +845,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'pike',
+    filePath: '/fish/pike',
     id: 24,
     name: {
       'de-EU': `Hecht`,
@@ -883,7 +883,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'pond_smelt',
+    filePath: '/fish/pond_smelt',
     id: 25,
     name: {
       'de-EU': `Stint`,
@@ -921,7 +921,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'sweetfish',
+    filePath: '/fish/sweetfish',
     id: 26,
     name: {
       'de-EU': `Ayu`,
@@ -959,7 +959,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'cherry_salmon',
+    filePath: '/fish/cherry_salmon',
     id: 27,
     name: {
       'de-EU': `Masulachs`,
@@ -994,7 +994,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'char',
+    filePath: '/fish/char',
     id: 28,
     name: {
       'de-EU': `Saibling`,
@@ -1029,7 +1029,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'golden_trout',
+    filePath: '/fish/golden_trout',
     id: 29,
     name: {
       'de-EU': `Goldforelle`,
@@ -1064,7 +1064,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'stringfish',
+    filePath: '/fish/stringfish',
     id: 30,
     name: {
       'de-EU': `Huchen`,
@@ -1099,7 +1099,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'salmon',
+    filePath: '/fish/salmon',
     id: 31,
     name: {
       'de-EU': `Lachs`,
@@ -1137,7 +1137,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'king_salmon',
+    filePath: '/fish/king_salmon',
     id: 32,
     name: {
       'de-EU': `Königslachs`,
@@ -1175,7 +1175,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'mitten_crab',
+    filePath: '/fish/mitten_crab',
     id: 33,
     name: {
       'de-EU': `Wollhandkrabbe`,
@@ -1210,7 +1210,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'guppy',
+    filePath: '/fish/guppy',
     id: 34,
     name: {
       'de-EU': `Guppy`,
@@ -1245,7 +1245,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'nibble_fish',
+    filePath: '/fish/nibble_fish',
     id: 35,
     name: {
       'de-EU': `Saugbarbe`,
@@ -1280,7 +1280,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'angelfish',
+    filePath: '/fish/angelfish',
     id: 36,
     name: {
       'de-EU': `Skalar`,
@@ -1315,7 +1315,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'betta',
+    filePath: '/fish/betta',
     id: 37,
     name: {
       'de-EU': `Kampffisch`,
@@ -1350,7 +1350,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'neon_tetra',
+    filePath: '/fish/neon_tetra',
     id: 38,
     name: {
       'de-EU': `Neonsalmler`,
@@ -1385,7 +1385,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'rainbowfish',
+    filePath: '/fish/rainbowfish',
     id: 39,
     name: {
       'de-EU': `Regenbogenfisch`,
@@ -1420,7 +1420,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'piranha',
+    filePath: '/fish/piranha',
     id: 40,
     name: {
       'de-EU': `Piranha`,
@@ -1455,7 +1455,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'arowana',
+    filePath: '/fish/arowana',
     id: 41,
     name: {
       'de-EU': `Arowana`,
@@ -1490,7 +1490,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'dorado',
+    filePath: '/fish/dorado',
     id: 42,
     name: {
       'de-EU': `Lachssalmler`,
@@ -1525,7 +1525,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'gar',
+    filePath: '/fish/gar',
     id: 43,
     name: {
       'de-EU': `Knochenhecht`,
@@ -1560,7 +1560,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'arapaima',
+    filePath: '/fish/arapaima',
     id: 44,
     name: {
       'de-EU': `Arapaima`,
@@ -1595,7 +1595,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'saddled_bichir',
+    filePath: '/fish/saddled_bichir',
     id: 45,
     name: {
       'de-EU': `Flösselhecht`,
@@ -1630,7 +1630,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'sturgeon',
+    filePath: '/fish/sturgeon',
     id: 46,
     name: {
       'de-EU': `Stör`,
@@ -1668,7 +1668,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'sea_butterfly',
+    filePath: '/fish/sea_butterfly',
     id: 47,
     name: {
       'de-EU': `See-Engel`,
@@ -1706,7 +1706,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'sea_horse',
+    filePath: '/fish/sea_horse',
     id: 48,
     name: {
       'de-EU': `Seepferdchen`,
@@ -1744,7 +1744,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'clownfish',
+    filePath: '/fish/clownfish',
     id: 49,
     name: {
       'de-EU': `Anemonenfisch`,
@@ -1782,7 +1782,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'surgeonfish',
+    filePath: '/fish/surgeonfish',
     id: 50,
     name: {
       'de-EU': `Paletten-Doktorfisch`,
@@ -1820,7 +1820,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'butterfly_fish',
+    filePath: '/fish/butterfly_fish',
     id: 51,
     name: {
       'de-EU': `Falterfisch`,
@@ -1858,7 +1858,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'napoleonfish',
+    filePath: '/fish/napoleonfish',
     id: 52,
     name: {
       'de-EU': `Napoleonfisch`,
@@ -1893,7 +1893,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'zebra_turkeyfish',
+    filePath: '/fish/zebra_turkeyfish',
     id: 53,
     name: {
       'de-EU': `Rotfeuerfisch`,
@@ -1931,7 +1931,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'blowfish',
+    filePath: '/fish/blowfish',
     id: 54,
     name: {
       'de-EU': `Kugelfisch`,
@@ -1966,7 +1966,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'puffer_fish',
+    filePath: '/fish/puffer_fish',
     id: 55,
     name: {
       'de-EU': `Igelfisch`,
@@ -2004,7 +2004,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'anchovy',
+    filePath: '/fish/anchovy',
     id: 56,
     name: {
       'de-EU': `Sardelle`,
@@ -2039,7 +2039,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'horse_mackerel',
+    filePath: '/fish/horse_mackerel',
     id: 57,
     name: {
       'de-EU': `Makrele`,
@@ -2077,7 +2077,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'barred_knifejaw',
+    filePath: '/fish/barred_knifejaw',
     id: 58,
     name: {
       'de-EU': `Schnabelbarsch`,
@@ -2115,7 +2115,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'sea_bass',
+    filePath: '/fish/sea_bass',
     id: 59,
     name: {
       'de-EU': `Seebarsch`,
@@ -2153,7 +2153,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'red_snapper',
+    filePath: '/fish/red_snapper',
     id: 60,
     name: {
       'de-EU': `Kaiserschnapper`,
@@ -2191,7 +2191,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'dab',
+    filePath: '/fish/dab',
     id: 61,
     name: {
       'de-EU': `Kliesche`,
@@ -2229,7 +2229,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'olive_flounder',
+    filePath: '/fish/olive_flounder',
     id: 62,
     name: {
       'de-EU': `Flunder`,
@@ -2267,7 +2267,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'squid',
+    filePath: '/fish/squid',
     id: 63,
     name: {
       'de-EU': `Kalmar`,
@@ -2305,7 +2305,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'moray_eel',
+    filePath: '/fish/moray_eel',
     id: 64,
     name: {
       'de-EU': `Muräne`,
@@ -2343,7 +2343,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'ribbon_eel',
+    filePath: '/fish/ribbon_eel',
     id: 65,
     name: {
       'de-EU': `Nasenmuräne`,
@@ -2381,7 +2381,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'tuna',
+    filePath: '/fish/tuna',
     id: 66,
     name: {
       'de-EU': `Thunfisch`,
@@ -2419,7 +2419,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'blue_marlin',
+    filePath: '/fish/blue_marlin',
     id: 67,
     name: {
       'de-EU': `Marlin`,
@@ -2457,7 +2457,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'giant_trevally',
+    filePath: '/fish/giant_trevally',
     id: 68,
     name: {
       'de-EU': `Stachelmakrele`,
@@ -2495,7 +2495,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'mahi-mahi',
+    filePath: '/fish/mahi-mahi',
     id: 69,
     name: {
       'de-EU': `Goldmakrele`,
@@ -2533,7 +2533,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'ocean_sunfish',
+    filePath: '/fish/ocean_sunfish',
     id: 70,
     name: {
       'de-EU': `Mondfisch`,
@@ -2568,7 +2568,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'ray',
+    filePath: '/fish/ray',
     id: 71,
     name: {
       'de-EU': `Rochen`,
@@ -2603,7 +2603,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'saw_shark',
+    filePath: '/fish/saw_shark',
     id: 72,
     name: {
       'de-EU': `Sägehai`,
@@ -2638,7 +2638,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'hammerhead_shark',
+    filePath: '/fish/hammerhead_shark',
     id: 73,
     name: {
       'de-EU': `Hammerhai`,
@@ -2673,7 +2673,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'great_white_shark',
+    filePath: '/fish/great_white_shark',
     id: 74,
     name: {
       'de-EU': `Hai`,
@@ -2708,7 +2708,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'whale_shark',
+    filePath: '/fish/whale_shark',
     id: 75,
     name: {
       'de-EU': `Walhai`,
@@ -2746,7 +2746,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'suckerfish',
+    filePath: '/fish/suckerfish',
     id: 76,
     name: {
       'de-EU': `Schiffshalter`,
@@ -2784,7 +2784,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'football_fish',
+    filePath: '/fish/football_fish',
     id: 77,
     name: {
       'de-EU': `Anglerfisch`,
@@ -2819,7 +2819,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'oarfish',
+    filePath: '/fish/oarfish',
     id: 78,
     name: {
       'de-EU': `Riemenfisch`,
@@ -2857,7 +2857,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'barreleye',
+    filePath: '/fish/barreleye',
     id: 79,
     name: {
       'de-EU': `Glaskopffisch`,
@@ -2892,7 +2892,7 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 
   {
-    fileName: 'coelacanth',
+    filePath: '/fish/coelacanth',
     id: 80,
     name: {
       'de-EU': `Quastenflosser`,
@@ -2930,5 +2930,4 @@ const CRITTERPEDIA_FISH: CritterpediaFish[] = [
   },
 ]
 
-const fish = { fish: CRITTERPEDIA_FISH, version: '0.0.2' }
-export default fish
+export default { fish: CRITTERPEDIA_FISH, version: '0.0.2' }
