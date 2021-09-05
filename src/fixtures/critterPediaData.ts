@@ -1,4 +1,5 @@
 import BUGS_CRITTER from 'data/critterpedia/bugs'
+import FISH_CRITTER from 'data/critterpedia/fish'
 
 import { UserCritterPediaBugs } from 'types/critterpedia/bug'
 
@@ -7,6 +8,7 @@ type createCritterPediaDataProps = {
   isDonatedToMuseum?: boolean
   isRegisteredOnCritterPedia?: boolean
   monthsAvailability?: number[]
+  critterType?: 'bugs' | 'fish'
 }
 
 export const createCritterPediaData = ({
@@ -14,8 +16,10 @@ export const createCritterPediaData = ({
   isDonatedToMuseum = false,
   isRegisteredOnCritterPedia = false,
   monthsAvailability,
-}: createCritterPediaDataProps) =>
-  BUGS_CRITTER.bugs.slice(0, length).map(
+  critterType = 'bugs',
+}: createCritterPediaDataProps) => {
+  const base = critterType === 'bugs' ? BUGS_CRITTER.bugs : FISH_CRITTER.fish
+  return base.slice(0, length).map(
     (item) =>
       ({
         ...item,
@@ -28,3 +32,4 @@ export const createCritterPediaData = ({
         },
       } as UserCritterPediaBugs),
   )
+}
