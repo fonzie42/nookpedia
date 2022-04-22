@@ -1,4 +1,4 @@
-export interface BaseBackgroundProps {
+export interface BackgroundProps {
   animatedClassName: string
   fallbackClassName: string
 }
