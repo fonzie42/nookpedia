@@ -1,0 +1,47 @@
+.phone {
+  background: #f6f4e7;
+  width: 400px;
+  height: 800px;
+  border-radius: 120px;
+  display: flow-root;
+
+  &__grid {
+    margin: 100px 25px;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+    z-index: 1;
+    grid-gap: 25px;
+    margin-bottom: 25px;
+  }
+
+  &__icon-wrapper {
+    transition: 1.5s;
+    margin-bottom: 0;
+
+    &--active {
+      margin-bottom: 125px;
+    }
+  }
+
+  &__extra-icons {
+    z-index: -1;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    right: 0;
+    top: 125px;
+
+    &--reveal {
+      animation: critter-icon-wrapper-reveal 1.5s forwards;
+    }
+
+    &--leaving {
+      animation: critter-icon-wrapper-leaving 1.5s forwards;
+    }
+  }
+}

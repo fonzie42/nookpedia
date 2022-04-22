@@ -1,13 +1,7 @@
-import Bugs from './Bugs'
-import Fish from './Fish'
+import { Phone } from './Phone'
 
 function App() {
-  return (
-    <div className="App">
-      <Fish />
-      <Bugs />
-    </div>
-  )
+  return <Phone />
 }
 
 export default App
