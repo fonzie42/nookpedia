@@ -3,7 +3,11 @@ import { FC } from 'react'
 import './background.scss'
 import cc from 'classcat'
 
+import { bem } from 'utils/bem'
+
 import { BackgroundProps } from './types'
+
+const block = 'background'
 
 export const Background: FC<BackgroundProps> = ({
   children,
@@ -12,11 +16,13 @@ export const Background: FC<BackgroundProps> = ({
 }) => (
   <>
     <div
-      className={cc([fallbackClassName, 'background background--fallback'])}
+      className={cc([fallbackClassName, bem({ block, modifier: 'fallback' })])}
       aria-hidden
     />
 
-    <div className={cc(['background background--animated', animatedClassName])}>
+    <div
+      className={cc([animatedClassName, bem({ block, modifier: 'animated' })])}
+    >
       {children}
     </div>
   </>
