@@ -7,6 +7,7 @@ import seaCreatureIcon from 'assets/nookIcons/sea_creature.png'
 import cc from 'classcat'
 
 import { BackgroundPolka, BackgroundRipple } from 'ui/Background'
+import { bem } from 'utils/bem'
 
 import { CritterPediaIconProps, IconOptions } from './types'
 
@@ -28,7 +29,7 @@ const getIconImage = (selectedIcon: IconOptions): string => {
   return icons[selectedIcon]
 }
 
-const createIcon: VFC<{ icon: IconOptions; isSolo: boolean }> = ({
+export const createIcon: VFC<{ icon: IconOptions; isSolo: boolean }> = ({
   icon,
   isSolo,
 }) => (
@@ -40,7 +41,7 @@ const createIcon: VFC<{ icon: IconOptions; isSolo: boolean }> = ({
   />
 )
 
-const createIcons: VFC<{ soloIcon?: IconOptions }> = ({ soloIcon }) =>
+export const createIcons: VFC<{ soloIcon?: IconOptions }> = ({ soloIcon }) =>
   !!soloIcon ? (
     createIcon({ icon: soloIcon, isSolo: true })
   ) : (
@@ -58,15 +59,61 @@ export const CritterPediaIcon: VFC<CritterPediaIconProps> = ({
 }) => {
   const isSolo = !!selectedIcon
 
+  const block = 'critter-icon'
+  const modifier = 'center'
+  const animationModifier = animation
+
   const buttonClassName = cc([
     'critter-icon',
-    animation && `critter-icon--${animation}`,
+    animation && bem({ block, modifier: animationModifier }),
   ])
+
+  const critterClassName = bem({
+    block,
+    element: 'critter',
+    modifier: isSolo && modifier,
+  })
+
+  const fishClassName = bem({
+    block,
+    element: 'fish',
+    modifier: isSolo && modifier,
+  })
+
+  const seaCreatureClassName = bem({
+    block,
+    element: 'sea-creature',
+    modifier: isSolo && modifier,
+  })
+
+  const shouldRenderCritter = !isSolo || selectedIcon === 'critter'
+  const shouldRenderFish = !isSolo || selectedIcon === 'fish'
+  const shouldRenderSeaCreature = !isSolo || selectedIcon === 'sea-creature'
 
   return (
     <button onClick={onClick} className={buttonClassName}>
-      {createIcons({ soloIcon: selectedIcon })}
-      {isSolo ? <BackgroundPolka /> : <BackgroundRipple />}
+      {shouldRenderCritter && (
+        <img
+          src={critterIcon}
+          className={critterClassName}
+          alt=""
+          aria-hidden
+        />
+      )}
+      {shouldRenderFish && (
+        <img src={fishIcon} className={fishClassName} alt="" aria-hidden />
+      )}
+      {shouldRenderSeaCreature && (
+        <img
+          src={seaCreatureIcon}
+          className={seaCreatureClassName}
+          alt=""
+          aria-hidden
+        />
+      )}
+      <div className="critter-icon__background-wrapper">
+        {isSolo ? <BackgroundPolka /> : <BackgroundRipple />}
+      </div>
     </button>
   )
 }
