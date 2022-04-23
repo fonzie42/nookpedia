@@ -1,13 +1,24 @@
-import './critter-card.scss'
 import { monthIntToString } from 'parser'
 
 import { UserCritterPediaData } from 'types/critterpedia'
 import { RarityBar } from 'ui/RarityBar'
 import { TwoStateToggle } from 'ui/TwoStateToggle'
 
+import {
+  Card,
+  CardTitle,
+  CardTitleContent,
+  CritterImage,
+  Icon,
+  InfoList,
+  ListItemCatchPhrase,
+  ListItemRarityBar,
+  Mask,
+  MuseumPhrase,
+} from './critter-card.styled'
 import { CritterCardProps } from './types'
 
-export const CritterCard = <T extends UserCritterPediaData>({
+const CritterCard = <T extends UserCritterPediaData>({
   critter,
   locale,
   updateCritterCallback,
@@ -22,40 +33,37 @@ export const CritterCard = <T extends UserCritterPediaData>({
   })
 
   return (
-    <div className="critter-card">
-      <img
-        className="critter-card__image"
+    <Card>
+      <CritterImage
         src={process.env.PUBLIC_URL + `/assets/images${critter.filePath}.png`}
         alt={critter.name[locale]}
       />
-      <h2 className="critter-card__title">
-        <div className="critter-card__title-container">
-          <svg>
-            <mask className="m" id={critter.filePath} fill="#fff">
+      <CardTitle>
+        <CardTitleContent>
+          <Icon>
+            <Mask id={critter.filePath} fill="#fff">
               <rect id="b" width="100%" height="100%" />
               <circle id="c" r="9" fill="#000" />
               <use xlinkHref="#c" x="100%" />
               <use xlinkHref="#c" y="100%" />
               <use xlinkHref="#c" x="100%" y="100%" />
-            </mask>
+            </Mask>
             <use xlinkHref="#b" mask={`url(#${critter.filePath})`} />
-          </svg>
+          </Icon>
           {critter.name[locale]}
-        </div>
-      </h2>
-      <span className="critter-card__museum-phrase">
-        "{critter.museumPhrase}"
-      </span>
+        </CardTitleContent>
+      </CardTitle>
+      <MuseumPhrase>"{critter.museumPhrase}"</MuseumPhrase>
 
-      <ul>
-        <li className="critter-card__catch-phrase">
+      <InfoList>
+        <ListItemCatchPhrase>
           <span>Catch Phrase: </span>
           <span>{critter.catchPhrase}</span>
-        </li>
-        <li className="critter-card__rarity-bar">
+        </ListItemCatchPhrase>
+        <ListItemRarityBar>
           <span>Rarity </span>
           <RarityBar currentValue={critter.availability.rarity} />
-        </li>
+        </ListItemRarityBar>
         <li>
           <span>Southern </span>
           {`${monthStart} - ${monthEnd}`}
@@ -104,7 +112,9 @@ export const CritterCard = <T extends UserCritterPediaData>({
             }}
           />
         </li>
-      </ul>
-    </div>
+      </InfoList>
+    </Card>
   )
 }
+
+export default CritterCard
