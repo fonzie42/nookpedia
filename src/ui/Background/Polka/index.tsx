@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { FC } from 'react'
 
 import { BACKGROUND } from 'types/animations'
 import { bem } from 'utils/bem'
@@ -6,7 +6,7 @@ import { bem } from 'utils/bem'
 import { Background } from '../Background'
 import './polka.scss'
 
-export const Polka: VFC = () => {
+export const Polka: FC = () => {
   const block = BACKGROUND.POLKA
 
   return (

@@ -1,8 +1,8 @@
-import { VFC } from 'react'
+import { FC } from 'react'
 
 import { ToggleProps } from './types'
 
-export const Toggle: VFC<ToggleProps> = ({ onCurrentStateCallback }) => {
+export const Toggle: FC<ToggleProps> = ({ onCurrentStateCallback }) => {
   return (
     <div>
       <button onClick={() => onCurrentStateCallback(true)}>Yes</button>

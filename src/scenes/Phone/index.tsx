@@ -1,4 +1,4 @@
-import { VFC, useState } from 'react'
+import { FC, useState } from 'react'
 
 import Bugs from 'scenes/Bugs'
 import Fish from 'scenes/Fish'
@@ -6,7 +6,7 @@ import Fish from 'scenes/Fish'
 import { APPS } from './APPS'
 import './phone.scss'
 
-export const Phone: VFC = () => {
+export const Phone: FC = () => {
   const [areButtonsLeaving, setAreButtonsLeaving] = useState<boolean>(false)
 
   const [currentOpenIcon, setCurrentOpenIcon] = useState<any | null>(null)

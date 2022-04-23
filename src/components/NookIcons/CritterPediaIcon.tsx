@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { FC } from 'react'
 import './CritterPediaIcon.scss'
 
 import critterIcon from 'assets/nookIcons/critter.png'
@@ -29,7 +29,7 @@ const getIconImage = (selectedIcon: IconOptions): string => {
   return icons[selectedIcon]
 }
 
-export const createIcon: VFC<{ icon: IconOptions; isSolo: boolean }> = ({
+export const createIcon: FC<{ icon: IconOptions; isSolo: boolean }> = ({
   icon,
   isSolo,
 }) => (
@@ -41,7 +41,7 @@ export const createIcon: VFC<{ icon: IconOptions; isSolo: boolean }> = ({
   />
 )
 
-export const createIcons: VFC<{ soloIcon?: IconOptions }> = ({ soloIcon }) =>
+export const createIcons: FC<{ soloIcon?: IconOptions }> = ({ soloIcon }) =>
   !!soloIcon ? (
     createIcon({ icon: soloIcon, isSolo: true })
   ) : (
@@ -52,7 +52,7 @@ export const createIcons: VFC<{ soloIcon?: IconOptions }> = ({ soloIcon }) =>
     </>
   )
 
-export const CritterPediaIcon: VFC<CritterPediaIconProps> = ({
+export const CritterPediaIcon: FC<CritterPediaIconProps> = ({
   onClick,
   animation,
   selectedIcon,
