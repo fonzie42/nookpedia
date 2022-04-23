@@ -2,21 +2,22 @@ import { UserCritterPediaData } from 'types/critterpedia'
 import { UserCritterPediaBugs } from 'types/critterpedia/bug'
 import { UserCritterPediaFish } from 'types/critterpedia/fish'
 
-import { Item } from './Item'
+import { Container } from './critter-table.styled'
+import { TableItem } from './table-item'
 import { CritterTableProps } from './types'
 
-import './CritterTable.scss'
-
-export function CritterTable<T extends UserCritterPediaData>({
+function CritterTable<T extends UserCritterPediaData>({
   data,
 }: CritterTableProps<T>): JSX.Element {
   return (
-    <div className="critter-table">
+    <Container>
       {(data as Array<UserCritterPediaBugs | UserCritterPediaFish>).map(
         (item) => (
-          <Item critter={item} key={item.id} />
+          <TableItem critter={item} key={item.id} />
         ),
       )}
-    </div>
+    </Container>
   )
 }
+
+export default CritterTable

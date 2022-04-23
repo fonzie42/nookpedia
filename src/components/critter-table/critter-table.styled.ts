@@ -1,4 +1,6 @@
-.critter-table {
+import styled from 'styled-components'
+
+export const Container = styled.div`
   --scrollbarBG: #f7f3da;
   --thumbBG: #bdaf73;
   display: grid;
@@ -11,21 +13,20 @@
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
-
   & > * {
     border: 1px solid #dbd3a4;
   }
 
-  .critter-table::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     width: 11px;
   }
 
-  .critter-table::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-track {
     background: var(--scrollbarBG);
   }
-  .critter-table::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-thumb {
     background-color: var(--thumbBG);
     border-radius: 6px;
     border: 3px solid var(--scrollbarBG);
   }
-}
+`

@@ -1,21 +1,21 @@
 import { UserCritterPediaData } from 'types/critterpedia'
 
+import { Container, ItemButton, ItenImage } from './table-item.styled'
 import { ItemProps } from './types'
 
-import './item.scss'
-
-export function Item<T extends UserCritterPediaData>({
+function TableItem<T extends UserCritterPediaData>({
   critter,
 }: ItemProps<T>): JSX.Element {
   return (
-    <div className="critter-card-item">
-      <button className="critter-card-item__button">
-        <img
-          className="critter-card-item__image"
+    <Container>
+      <ItemButton>
+        <ItenImage
           src={process.env.PUBLIC_URL + `/assets/icons${critter.filePath}.png`}
           alt={critter.name['en-US']}
         />
-      </button>
-    </div>
+      </ItemButton>
+    </Container>
   )
 }
+
+export default TableItem
