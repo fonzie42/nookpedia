@@ -1,6 +1,6 @@
 import { FLAGS } from 'data/flags'
 
-import { CritterPediaIcon } from 'components/NookIcons/CritterPediaIcon'
+import { CritterPediaIcon } from 'components/nook-icons'
 
 export const APPS = [
   [
