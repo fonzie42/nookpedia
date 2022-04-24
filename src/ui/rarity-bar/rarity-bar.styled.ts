@@ -1,20 +1,25 @@
-.rarity-bar {
+import styled, { css } from 'styled-components'
+
+export const Container = styled.div`
   display: flex;
+`
 
-  &__value {
-    padding: 0.25rem 0.5rem;
-    background: #fbf5ec;
-    border: 1px solid #787369;
-    border-right: none;
-    color: #9f9a91;
-    text-decoration: line-through;
-    user-select: none;
+export const Value = styled.div<{ selected?: boolean }>`
+  padding: 0.25rem 0.5rem;
+  background: #fbf5ec;
+  border: 1px solid #787369;
+  border-right: none;
+  color: #9f9a91;
+  text-decoration: line-through;
+  user-select: none;
 
-    &:last-child {
-      border-right: 1px solid #787369;
-    }
+  &:last-child {
+    border-right: 1px solid #787369;
+  }
 
-    &--selected {
+  ${(props) =>
+    props.selected &&
+    css`
       background: #fff0a6;
       opacity: 1;
       position: relative;
@@ -51,6 +56,5 @@
         border-top-color: transparent;
         transform: rotate(-6deg);
       }
-    }
-  }
-}
+    `}
+`
