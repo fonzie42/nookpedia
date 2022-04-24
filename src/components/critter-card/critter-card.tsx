@@ -1,8 +1,8 @@
 import { monthIntToString } from 'parser'
 
 import { UserCritterPediaData } from 'types/critterpedia'
-import { TwoStateToggle } from 'ui/TwoStateToggle'
 import { RarityBar } from 'ui/rarity-bar'
+import { TwoStateToggle } from 'ui/two-way-toggle'
 
 import {
   Card,
