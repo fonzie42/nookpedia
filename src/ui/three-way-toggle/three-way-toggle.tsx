@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { ToggleProps } from './types'
 
-export const Toggle: FC<ToggleProps> = ({ onCurrentStateCallback }) => {
+const ThreeWayToggle: FC<ToggleProps> = ({ onCurrentStateCallback }) => {
   return (
     <div>
       <button onClick={() => onCurrentStateCallback(true)}>Yes</button>
@@ -11,3 +11,5 @@ export const Toggle: FC<ToggleProps> = ({ onCurrentStateCallback }) => {
     </div>
   )
 }
+
+export default ThreeWayToggle
