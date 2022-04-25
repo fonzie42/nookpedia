@@ -3,8 +3,6 @@ module.exports = {
   extends: [
     'react-app',
     'prettier',
-    'prettier/react',
-    'prettier/@typescript-eslint',
     'plugin:jsx-a11y/recommended',
     'airbnb-base/rules/imports',
     'plugin:jest/recommended',

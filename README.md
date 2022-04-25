@@ -15,6 +15,22 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
+### `npm generate-component`
+
+Runs a script to: 
+- Create a new React component
+  - Location folder can be set
+  - Component name can me set
+  - Can separate the component in logic/view
+  - Can include a Storybook file to it
+  - Can include a Skeleton Loader
+- Add `tests` folder and file to existing React component
+  - Location can be set
+  - The test name can also be set (but should be the same as the component)
+- Add a Storybook story to an existing React component
+  - Location can be set
+  - The test name can also be set (but should be the same as the component)
+    
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />

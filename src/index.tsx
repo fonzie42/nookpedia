@@ -1,15 +1,17 @@
 import { StrictMode } from 'react'
 
-import ReactDOM from 'react-dom'
-import './index.scss'
+import { GlobalStyle } from 'app.styled'
+import { createRoot } from 'react-dom/client'
 import App from 'scenes/App'
 import * as serviceWorker from 'serviceWorker'
 
-ReactDOM.render(
+const container = document.getElementById('root')
+const root = createRoot(container!) // createRoot(container!) if you use TypeScript
+root.render(
   <StrictMode>
+    <GlobalStyle />
     <App />
   </StrictMode>,
-  document.getElementById('root'),
 )
 
 // If you want your app to work offline and load faster, you can change

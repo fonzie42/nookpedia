@@ -1,0 +1,23 @@
+import { VFC } from 'react'
+
+{{#if includeSkeletonLoader }}
+import { {{> SkeletonName}} } from './{{> SkeletonFileName}}'
+{{/if}}
+import { Wrapper } from './{{> ComponentFileName}}.styled'
+import { I{{> ComponentViewName}}Props } from './types'
+
+{{#if includeSkeletonLoader }}
+export const {{> ComponentViewName}}: VFC<I{{> ComponentViewName}}Props> = ({ isLoading, label }) => {
+{{else}}
+export const {{> ComponentViewName}}: VFC<I{{> ComponentViewName}}Props> = ({ label }) => {
+{{/if}}
+  {{#if includeSkeletonLoader }}
+  if (isLoading) {
+    return <{{> SkeletonName}} />
+  }
+
+  return <Wrapper>{label}</Wrapper>
+  {{else}}
+  return <Wrapper>{label}</Wrapper>
+  {{/if}}
+}

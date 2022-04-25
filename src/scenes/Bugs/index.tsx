@@ -4,12 +4,12 @@ import { mergeOrCreateDataWithCritter, updateCritterInList } from 'critterPedia'
 import CRITTERPEDIA_BUGS from 'data/critterpedia/bugs'
 import { getBugsFromLocalStorage, persistBugsInLocalStorage } from 'storage'
 
-import { CritterCard } from 'components/CritterCard'
-import { CritterTable } from 'components/CritterTable'
+import { CritterCard } from 'components/critter-card'
+import { CritterTable } from 'components/critter-table'
 import { UseFilters } from 'hooks/useFilters'
 import { Hemisphere } from 'types/critterpedia'
 import { CritterpediaBugs, UserCritterPediaBugs } from 'types/critterpedia/bug'
-import { Toggle } from 'ui/Toggle'
+import { ThreeWayToggle } from 'ui/three-way-toggle'
 
 const Bugs = () => {
   const [personalCritter, setPersonalCritter] = useState<
@@ -48,11 +48,15 @@ const Bugs = () => {
   return (
     <div>
       Donated To Museum
-      <Toggle onCurrentStateCallback={setIsDonatedToMuseumFilter} />
+      <ThreeWayToggle onCurrentStateCallback={setIsDonatedToMuseumFilter} />
       Registered On CritterPedia
-      <Toggle onCurrentStateCallback={setIsRegisteredOnCritterPediaFilter} />
+      <ThreeWayToggle
+        onCurrentStateCallback={setIsRegisteredOnCritterPediaFilter}
+      />
       Present On Current Month
-      <Toggle onCurrentStateCallback={setIsPresentOnCurrentMonthFilter} />
+      <ThreeWayToggle
+        onCurrentStateCallback={setIsPresentOnCurrentMonthFilter}
+      />
       {filteredData.length}
       <CritterTable data={personalCritter} />
       {filteredData.map((bug) => (

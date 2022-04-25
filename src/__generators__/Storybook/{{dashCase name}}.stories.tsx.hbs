@@ -1,0 +1,41 @@
+import { Meta, Story } from '@storybook/react'
+
+{{#if includeContainer}}
+import { {{> ComponentViewName}} } from './{{> ComponentViewFileName}}'
+import { I{{> ComponentViewName}}Props } from './types'
+{{else}}
+import { {{> ComponentName}} } from './{{> ComponentFileName}}'
+import { I{{> ComponentName}}Props } from './types'
+{{/if}}
+
+{{#if includeContainer}}
+export default {
+  component: {{> ComponentViewName}},
+  title: 'UI/{{> ComponentName}}',
+  parameters: {
+    isLoading: false,
+    label: '{{> ComponentName}} text',
+  },
+} as Meta
+
+const Template: Story<I{{> ComponentViewName}}Props> = (args) => {
+  return <{{> ComponentViewName}} {...args} />
+}
+
+export const {{> ComponentViewName}}Story = Template.bind({})
+{{else}}
+export default {
+  component: {{> ComponentName}},
+  title: 'UI/{{> ComponentName}}',
+  parameters: {
+    isLoading: false,
+    label: '{{> ComponentName}} text',
+  },
+} as Meta
+
+const Template: Story<I{{> ComponentName}}Props> = (args) => {
+  return <{{> ComponentName}} {...args} />
+}
+
+export const {{> ComponentName}}Story = Template.bind({})
+{{/if}}
