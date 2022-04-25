@@ -4,7 +4,13 @@ import Bugs from 'scenes/Bugs'
 import Fish from 'scenes/Fish'
 
 import { APPS } from './APPS'
-import './phone.scss'
+import {
+  Container,
+  ExtraIcons,
+  IconWrapper,
+  PhoneContainer,
+  PhoneRow,
+} from './phone.stlyed'
 
 export const Phone: FC = () => {
   const [areButtonsLeaving, setAreButtonsLeaving] = useState<boolean>(false)
@@ -22,17 +28,9 @@ export const Phone: FC = () => {
     }, 1500)
   }
 
-  const critterPediaButtonsClassName = areButtonsLeaving
-    ? 'phone__extra-icons phone__extra-icons--leaving'
-    : 'phone__extra-icons phone__extra-icons--reveal'
-
   const nookIcons = APPS.map((items, i) => {
     const icon = items.map((item, j) => {
       const isCurrentOpen = currentOpenIcon === item
-      const wrapperClassName =
-        isCurrentOpen && !areButtonsLeaving
-          ? 'phone__icon-wrapper phone__icon-wrapper--active'
-          : 'phone__icon-wrapper'
 
       const onclickCallback = () => {
         if (areButtonsLeaving) {
@@ -49,17 +47,17 @@ export const Phone: FC = () => {
       }
 
       return (
-        <div key={i + j} className={wrapperClassName}>
+        <IconWrapper key={i + j} active={isCurrentOpen && !areButtonsLeaving}>
           {item.renderIcon(onclickCallback)}
-        </div>
+        </IconWrapper>
       )
     })
 
     return (
-      <div className="phone__row" key={i}>
+      <PhoneRow key={i}>
         {icon}
         {currentOpenIcon && (
-          <div className={critterPediaButtonsClassName}>
+          <ExtraIcons animation={areButtonsLeaving ? 'leaving' : 'reveal'}>
             {currentOpenIcon?.renderSubIcons({
               critterCallback: () => {
                 closeButton()
@@ -72,17 +70,17 @@ export const Phone: FC = () => {
               },
               seaCreatureCallback: closeButton,
             })}
-          </div>
+          </ExtraIcons>
         )}
-      </div>
+      </PhoneRow>
     )
   })
 
   return (
-    <div className="phone">
-      <div className="phone__grid">{nookIcons}</div>
+    <Container>
+      <PhoneContainer>{nookIcons}</PhoneContainer>
       {isCritterOpen && <Bugs />}
       {isFishOpen && <Fish />}
-    </div>
+    </Container>
   )
 }
