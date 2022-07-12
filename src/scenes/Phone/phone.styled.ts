@@ -9,6 +9,15 @@ export const Container = styled.div`
   background: #f6f4e7;
   border-radius: 120px;
   display: flow-root;
+  overflow: hidden;
+  height: 100%;
+`
+
+export const SizeContainer = styled.div`
+  // @todo: this should be changed according to display size
+  width: 360px;
+  height: 720px;
+  position: relative;
 `
 
 export const PhoneContainer = styled.div`
@@ -43,4 +52,22 @@ export const ExtraIcons = styled.div<{ animation: 'reveal' | 'leaving' }>`
 export const IconWrapper = styled.div<{ active?: boolean }>`
   transition: 1.5s;
   margin-bottom: ${(props) => (props.active ? '125px' : '0')};
+`
+
+export const Header = styled.button`
+  height: 120px;
+  background: red;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  border: none;
+`
+
+export const Footer = styled.div`
+  height: 120px;
+  background: red;
+`
+
+export const Content = styled.div`
+  height: calc(100% - 240px);
 `
