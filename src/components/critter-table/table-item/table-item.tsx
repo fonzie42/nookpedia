@@ -1,15 +1,16 @@
 import { UserCritterPediaData } from 'types/critterpedia'
 
-import { Container, ItemButton, ItenImage } from './table-item.styled'
+import { Container, ItemButton, ItemImage } from './table-item.styled'
 import { ItemProps } from './types'
 
 function TableItem<T extends UserCritterPediaData>({
   critter,
+  openCritterCallback,
 }: ItemProps<T>): JSX.Element {
   return (
     <Container>
-      <ItemButton>
-        <ItenImage
+      <ItemButton onClick={openCritterCallback}>
+        <ItemImage
           src={process.env.PUBLIC_URL + `/assets/icons${critter.filePath}.png`}
           alt={critter.name['en-US']}
         />
