@@ -38,6 +38,7 @@ const Fish = () => {
 
   const {
     filteredData,
+    activeFilters,
     setFilter: {
       setIsDonatedToMuseumFilter,
       setIsPresentOnCurrentMonthFilter,
@@ -48,13 +49,21 @@ const Fish = () => {
   return (
     <div>
       Donated To Museum
-      <ThreeWayToggle onCurrentStateCallback={setIsDonatedToMuseumFilter} />
+      <ThreeWayToggle
+        label={'🦉'}
+        currentState={activeFilters.isDonatedToMuseum}
+        onCurrentStateCallback={setIsDonatedToMuseumFilter}
+      />
       Registered On CritterPedia
       <ThreeWayToggle
+        label={'📔'}
+        currentState={activeFilters.isRegisteredOnCritterPedia}
         onCurrentStateCallback={setIsRegisteredOnCritterPediaFilter}
       />
       Present On Current Month
       <ThreeWayToggle
+        label={'🗓️ '}
+        currentState={activeFilters.isPresentOnCurrentMonth}
         onCurrentStateCallback={setIsPresentOnCurrentMonthFilter}
       />
       {filteredData.length}

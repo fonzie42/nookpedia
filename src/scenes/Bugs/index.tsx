@@ -11,6 +11,8 @@ import { Hemisphere } from 'types/critterpedia'
 import { CritterpediaBugs, UserCritterPediaBugs } from 'types/critterpedia/bug'
 import { ThreeWayToggle } from 'ui/three-way-toggle'
 
+import { FilterContainer } from './styled'
+
 const Bugs = () => {
   const [personalCritter, setPersonalCritter] = useState<
     UserCritterPediaBugs[]
@@ -38,6 +40,7 @@ const Bugs = () => {
 
   const {
     filteredData,
+    activeFilters,
     setFilter: {
       setIsDonatedToMuseumFilter,
       setIsPresentOnCurrentMonthFilter,
@@ -47,29 +50,40 @@ const Bugs = () => {
 
   return (
     <div>
-      Donated To Museum
-      <ThreeWayToggle onCurrentStateCallback={setIsDonatedToMuseumFilter} />
-      Registered On CritterPedia
-      <ThreeWayToggle
-        onCurrentStateCallback={setIsRegisteredOnCritterPediaFilter}
-      />
-      Present On Current Month
-      <ThreeWayToggle
-        onCurrentStateCallback={setIsPresentOnCurrentMonthFilter}
-      />
-      {filteredData.length}
-      <CritterTable data={personalCritter} />
-      {filteredData.map((bug) => (
-        <CritterCard
-          critter={bug}
-          hemisphere={Hemisphere.SOUTHERN}
-          locale={'en-US'}
-          key={bug.id}
-          updateCritterCallback={(updatedBug) => {
-            setPersonalCritter(updateCritter(updatedBug, personalCritter))
-          }}
+      <FilterContainer>
+        {/* Donated To Museum */}
+        <ThreeWayToggle
+          label={'🦉'}
+          currentState={activeFilters.isDonatedToMuseum}
+          onCurrentStateCallback={setIsDonatedToMuseumFilter}
         />
-      ))}
+        {/* Registered On CritterPedia */}
+        <ThreeWayToggle
+          label={'📔'}
+          currentState={activeFilters.isRegisteredOnCritterPedia}
+          onCurrentStateCallback={setIsRegisteredOnCritterPediaFilter}
+        />
+        {/* Present On Current Month */}
+        <ThreeWayToggle
+          label={'🗓️'}
+          currentState={activeFilters.isPresentOnCurrentMonth}
+          onCurrentStateCallback={setIsPresentOnCurrentMonthFilter}
+        />
+      </FilterContainer>
+      {/* {filteredData.length} @todo: remove, this is for debug reasons. Or add it in some other other place */}
+      <CritterTable data={personalCritter} />
+      {false && // temporary
+        filteredData.map((bug) => (
+          <CritterCard
+            critter={bug}
+            hemisphere={Hemisphere.SOUTHERN}
+            locale={'en-US'}
+            key={bug.id}
+            updateCritterCallback={(updatedBug) => {
+              setPersonalCritter(updateCritter(updatedBug, personalCritter))
+            }}
+          />
+        ))}
     </div>
   )
 }
