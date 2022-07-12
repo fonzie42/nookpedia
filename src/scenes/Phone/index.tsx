@@ -10,7 +10,7 @@ import {
   IconWrapper,
   PhoneContainer,
   PhoneRow,
-} from './phone.stlyed'
+} from './phone.styled'
 
 export const Phone: FC = () => {
   const [areButtonsLeaving, setAreButtonsLeaving] = useState<boolean>(false)

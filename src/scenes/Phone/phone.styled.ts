@@ -7,8 +7,6 @@ import {
 
 export const Container = styled.div`
   background: #f6f4e7;
-  width: 400px;
-  height: 800px;
   border-radius: 120px;
   display: flow-root;
 `
