@@ -52,6 +52,7 @@ export function UseFilters<T extends UserCritterPediaData>({
 
   return {
     filteredData,
+    activeFilters,
     setFilter: {
       setIsDonatedToMuseumFilter,
       setIsRegisteredOnCritterPediaFilter,

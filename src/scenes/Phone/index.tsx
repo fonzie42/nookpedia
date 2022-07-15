@@ -1,86 +1,139 @@
 import { FC, useState } from 'react'
 
+import { useMachine } from '@xstate/react'
+import { FLAGS } from 'data/flags'
 import Bugs from 'scenes/Bugs'
 import Fish from 'scenes/Fish'
 
-import { APPS } from './APPS'
+import { CritterPediaIcon } from 'components/nook-icons'
+import { toggleMachine } from 'state/state'
+
 import {
   Container,
+  Content,
   ExtraIcons,
+  Footer,
+  Header,
   IconWrapper,
   PhoneContainer,
   PhoneRow,
-} from './phone.stlyed'
+  SizeContainer,
+} from './phone.styled'
 
 export const Phone: FC = () => {
-  const [areButtonsLeaving, setAreButtonsLeaving] = useState<boolean>(false)
+  const [current, send] = useMachine(toggleMachine, { devTools: true })
 
-  const [currentOpenIcon, setCurrentOpenIcon] = useState<any | null>(null)
+  const [currentOpenIcon, setCurrentOpenIcon] = useState<string | null>(null) // @todo: type this
 
-  const [isCritterOpen, setIsCritterOpen] = useState<boolean>(false)
-  const [isFishOpen, setIsFishOpen] = useState<boolean>(false)
+  const [openSubIcon, setOpenSubIcon] = useState<-1 | 0 | 1 | 2>(-1)
 
-  const closeButton: () => void = () => {
-    setAreButtonsLeaving(true)
-    setTimeout(() => {
-      setAreButtonsLeaving(false)
-      setCurrentOpenIcon(null)
-    }, 1500)
-  }
+  const isAppOpen = current.matches('appOpen')
 
-  const nookIcons = APPS.map((items, i) => {
-    const icon = items.map((item, j) => {
-      const isCurrentOpen = currentOpenIcon === item
+  const isAppOpenAnimating =
+    current.matches('appOpen.animatingIn') ||
+    current.matches('appOpen.animatingOut')
 
-      const onclickCallback = () => {
-        if (areButtonsLeaving) {
-          return
-        }
-        if (currentOpenIcon === null) {
-          setCurrentOpenIcon(item)
-          return
-        }
-        if (isCurrentOpen) {
-          closeButton()
-          return
-        }
-      }
+  const shouldRenderIcons =
+    current.matches('phoneIdle') ||
+    current.matches('subIconOpen') ||
+    current.matches('appOpen.animatingIn')
 
-      return (
-        <IconWrapper key={i + j} active={isCurrentOpen && !areButtonsLeaving}>
-          {item.renderIcon(onclickCallback)}
-        </IconWrapper>
-      )
-    })
-
-    return (
-      <PhoneRow key={i}>
-        {icon}
-        {currentOpenIcon && (
-          <ExtraIcons animation={areButtonsLeaving ? 'leaving' : 'reveal'}>
-            {currentOpenIcon?.renderSubIcons({
-              critterCallback: () => {
-                closeButton()
-                setIsCritterOpen(!isCritterOpen)
-              },
-
-              fishCallback: () => {
-                closeButton()
-                setIsFishOpen(!isFishOpen)
-              },
-              seaCreatureCallback: closeButton,
-            })}
-          </ExtraIcons>
-        )}
-      </PhoneRow>
-    )
-  })
+  const shouldRenderSubIcon =
+    current.matches('subIconOpen') ||
+    current.matches('appOpen.animatingIn') ||
+    current.matches('appOpen.animatingOut')
 
   return (
-    <Container>
-      <PhoneContainer>{nookIcons}</PhoneContainer>
-      {isCritterOpen && <Bugs />}
-      {isFishOpen && <Fish />}
-    </Container>
+    <SizeContainer>
+      <Container>
+        {isAppOpen && (
+          <>
+            {!isAppOpenAnimating && (
+              <>
+                <Header
+                  onClick={() => {
+                    send('CLOSE_APP')
+                    setOpenSubIcon(-1)
+                  }}
+                >
+                  Header
+                </Header>
+                <Content>
+                  <Bugs />
+                </Content>
+                <Footer>Footer</Footer>
+              </>
+            )}
+          </>
+        )}
+
+        {shouldRenderIcons && (
+          <PhoneContainer>
+            <PhoneRow>
+              <IconWrapper active={currentOpenIcon === 'critter'}>
+                <CritterPediaIcon
+                  onClick={() => {
+                    current.matches('subIconOpen') && send('CLOSE_SUB_ICON') // @todo: should call closebutton
+                    if (current.value === 'phoneIdle') {
+                      send('CLICK_ICON')
+                      setCurrentOpenIcon('critter')
+                      return
+                    }
+                  }}
+                />
+              </IconWrapper>
+              {shouldRenderSubIcon && currentOpenIcon === 'critter' && (
+                <ExtraIcons
+                  animation={
+                    current.matches('subIconOpen.animatingOut')
+                      ? 'leaving'
+                      : 'reveal' // @todo: improve this
+                  }
+                >
+                  {FLAGS.ENABLE_CRITTER.critter && (
+                    <CritterPediaIcon
+                      isOpeningApp={openSubIcon === 0}
+                      selectedIcon={'critter'}
+                      onClick={() => {
+                        send('OPEN_APP')
+                        setOpenSubIcon(0)
+                      }}
+                    />
+                  )}
+
+                  {FLAGS.ENABLE_CRITTER.fish && (
+                    <CritterPediaIcon
+                      isOpeningApp={openSubIcon === 1}
+                      selectedIcon={'fish'}
+                      onClick={() => {
+                        send('OPEN_APP')
+                        setOpenSubIcon(1)
+                      }}
+                    />
+                  )}
+
+                  {FLAGS.ENABLE_CRITTER.seaCreature && (
+                    <CritterPediaIcon
+                      isOpeningApp={openSubIcon === 2}
+                      selectedIcon={'sea-creature'}
+                      onClick={() => {
+                        send('OPEN_APP')
+                        setOpenSubIcon(2)
+                      }}
+                    />
+                  )}
+                </ExtraIcons>
+              )}
+            </PhoneRow>
+          </PhoneContainer>
+        )}
+
+        {
+          false && (
+            <Fish />
+          ) /* @todo: Fix this and better handle different apps state */
+        }
+      </Container>
+    </SizeContainer>
   )
 }

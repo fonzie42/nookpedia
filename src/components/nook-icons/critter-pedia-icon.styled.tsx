@@ -16,6 +16,12 @@ const leavingAnimation = css`
   animation: ${critterIconLeaving} 2s forwards;
 `
 
+export const Wrapper = styled.div`
+  position: relative;
+  width: 100px;
+  height: 100px;
+`
+
 export const CritterImage = styled.img<{
   centeredImage?: boolean
 }>`
