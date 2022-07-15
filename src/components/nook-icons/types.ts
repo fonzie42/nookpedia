@@ -5,4 +5,5 @@ export interface CritterPediaIconProps {
   animation?: 'reveal' | 'leaving'
   revealAnimation?: boolean
   selectedIcon?: IconOptions
+  isOpeningApp?: boolean
 }

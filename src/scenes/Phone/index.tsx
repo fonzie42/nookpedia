@@ -1,12 +1,13 @@
-import { FC, useCallback, useState } from 'react'
+import { FC, useState } from 'react'
 
 import { useMachine } from '@xstate/react'
+import { FLAGS } from 'data/flags'
 import Bugs from 'scenes/Bugs'
 import Fish from 'scenes/Fish'
 
+import { CritterPediaIcon } from 'components/nook-icons'
 import { toggleMachine } from 'state/state'
 
-import { APPS } from './APPS'
 import {
   Container,
   Content,
@@ -20,90 +21,118 @@ import {
 } from './phone.styled'
 
 export const Phone: FC = () => {
-  const [current, send] = useMachine(toggleMachine)
+  const [current, send] = useMachine(toggleMachine, { devTools: true })
 
-  const [areButtonsLeaving, setAreButtonsLeaving] = useState<boolean>(false)
+  const [currentOpenIcon, setCurrentOpenIcon] = useState<string | null>(null) // @todo: type this
 
-  const [currentOpenIcon, setCurrentOpenIcon] = useState<any | null>(null)
+  const [openSubIcon, setOpenSubIcon] = useState<-1 | 0 | 1 | 2>(-1)
 
-  const [isCritterOpen, setIsCritterOpen] = useState<boolean>(false)
+  const isAppOpen = current.matches('appOpen')
 
-  const setIsCritterOpenWithDelay = useCallback(
-    (e: boolean) => setTimeout(() => setIsCritterOpen(e), 1500),
-    [setIsCritterOpen],
-  )
-  const [isFishOpen, setIsFishOpen] = useState<boolean>(false)
+  const isAppOpenAnimating =
+    current.matches('appOpen.animatingIn') ||
+    current.matches('appOpen.animatingOut')
 
-  const closeButton: () => void = () => {
-    setAreButtonsLeaving(true)
-    setTimeout(() => {
-      setAreButtonsLeaving(false)
-      setCurrentOpenIcon(null)
-    }, 1500)
-  }
+  const shouldRenderIcons =
+    current.matches('phoneIdle') ||
+    current.matches('subIconOpen') ||
+    current.matches('appOpen.animatingIn')
 
-  const nookIcons = APPS.map((items, i) => {
-    const icon = items.map((item, j) => {
-      const isCurrentOpen = currentOpenIcon === item
-
-      const onclickCallback = () => {
-        current.value === 'subIconOpen' && send('CLOSE_SUB_ICON') // @todo: should call closebutton
-        if (current.value === 'phoneIdle') {
-          send('CLICK_ICON')
-          setCurrentOpenIcon(item)
-          return
-        }
-      }
-
-      return (
-        <IconWrapper key={i + j} active={isCurrentOpen && !areButtonsLeaving}>
-          {item.renderIcon(onclickCallback)}
-        </IconWrapper>
-      )
-    })
-
-    false && closeButton()
-    return (
-      <PhoneRow key={i}>
-        {icon}
-        {current.value === 'subIconOpen' && currentOpenIcon && (
-          <ExtraIcons animation={areButtonsLeaving ? 'leaving' : 'reveal'}>
-            {currentOpenIcon?.renderSubIcons({
-              critterCallback: () => {
-                send('OPEN_APP')
-                setIsCritterOpenWithDelay(!isCritterOpen)
-              },
-
-              fishCallback: () => {
-                send('OPEN_APP')
-                setIsFishOpen(!isFishOpen)
-              },
-              seaCreatureCallback: closeButton,
-            })}
-          </ExtraIcons>
-        )}
-      </PhoneRow>
-    )
-  })
+  const shouldRenderSubIcon =
+    current.matches('subIconOpen') ||
+    current.matches('appOpen.animatingIn') ||
+    current.matches('appOpen.animatingOut')
 
   return (
     <SizeContainer>
       <Container>
-        {current.value === 'appOpen' && (
+        {isAppOpen && (
           <>
-            <Header onClick={() => send('CLOSE_APP')}>Header</Header>
-            <Content>
-              <Bugs />
-            </Content>
-            <Footer>Footer</Footer>
+            {!isAppOpenAnimating && (
+              <>
+                <Header
+                  onClick={() => {
+                    send('CLOSE_APP')
+                    setOpenSubIcon(-1)
+                  }}
+                >
+                  Header
+                </Header>
+                <Content>
+                  <Bugs />
+                </Content>
+                <Footer>Footer</Footer>
+              </>
+            )}
           </>
         )}
 
-        {(current.value === 'phoneIdle' || current.value === 'subIconOpen') && (
-          <PhoneContainer>{nookIcons}</PhoneContainer>
+        {shouldRenderIcons && (
+          <PhoneContainer>
+            <PhoneRow>
+              <IconWrapper active={currentOpenIcon === 'critter'}>
+                <CritterPediaIcon
+                  onClick={() => {
+                    current.matches('subIconOpen') && send('CLOSE_SUB_ICON') // @todo: should call closebutton
+                    if (current.value === 'phoneIdle') {
+                      send('CLICK_ICON')
+                      setCurrentOpenIcon('critter')
+                      return
+                    }
+                  }}
+                />
+              </IconWrapper>
+              {shouldRenderSubIcon && currentOpenIcon === 'critter' && (
+                <ExtraIcons
+                  animation={
+                    current.matches('subIconOpen.animatingOut')
+                      ? 'leaving'
+                      : 'reveal' // @todo: improve this
+                  }
+                >
+                  {FLAGS.ENABLE_CRITTER.critter && (
+                    <CritterPediaIcon
+                      isOpeningApp={openSubIcon === 0}
+                      selectedIcon={'critter'}
+                      onClick={() => {
+                        send('OPEN_APP')
+                        setOpenSubIcon(0)
+                      }}
+                    />
+                  )}
+
+                  {FLAGS.ENABLE_CRITTER.fish && (
+                    <CritterPediaIcon
+                      isOpeningApp={openSubIcon === 1}
+                      selectedIcon={'fish'}
+                      onClick={() => {
+                        send('OPEN_APP')
+                        setOpenSubIcon(1)
+                      }}
+                    />
+                  )}
+
+                  {FLAGS.ENABLE_CRITTER.seaCreature && (
+                    <CritterPediaIcon
+                      isOpeningApp={openSubIcon === 2}
+                      selectedIcon={'sea-creature'}
+                      onClick={() => {
+                        send('OPEN_APP')
+                        setOpenSubIcon(2)
+                      }}
+                    />
+                  )}
+                </ExtraIcons>
+              )}
+            </PhoneRow>
+          </PhoneContainer>
         )}
 
-        {isFishOpen && <Fish />}
+        {
+          false && (
+            <Fish />
+          ) /* @todo: Fix this and better handle different apps state */
+        }
       </Container>
     </SizeContainer>
   )

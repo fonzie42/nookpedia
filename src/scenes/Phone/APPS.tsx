@@ -12,26 +12,34 @@ export const APPS = [
         critterCallback,
         fishCallback,
         seaCreatureCallback,
+        isOpeningApp,
       }: {
         critterCallback: () => void
         fishCallback: () => void
         seaCreatureCallback: () => void
+        isOpeningApp?: boolean
       }) => {
         return (
           <>
             {FLAGS.ENABLE_CRITTER.critter && (
               <CritterPediaIcon
+                isOpeningApp={isOpeningApp}
                 selectedIcon={'critter'}
                 onClick={critterCallback}
               />
             )}
 
             {FLAGS.ENABLE_CRITTER.fish && (
-              <CritterPediaIcon selectedIcon={'fish'} onClick={fishCallback} />
+              <CritterPediaIcon
+                isOpeningApp={isOpeningApp}
+                selectedIcon={'fish'}
+                onClick={fishCallback}
+              />
             )}
 
             {FLAGS.ENABLE_CRITTER.seaCreature && (
               <CritterPediaIcon
+                isOpeningApp={isOpeningApp}
                 selectedIcon={'sea-creature'}
                 onClick={seaCreatureCallback}
               />

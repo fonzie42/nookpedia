@@ -16,6 +16,19 @@ export interface Typegen0 {
   eventsCausingServices: {}
   eventsCausingGuards: {}
   eventsCausingDelays: {}
-  matchesStates: 'phoneIdle' | 'subIconOpen' | 'appOpen'
+  matchesStates:
+    | 'phoneIdle'
+    | 'appOpen'
+    | 'appOpen.animatingIn'
+    | 'appOpen.ready'
+    | 'appOpen.animatingOut'
+    | 'subIconOpen'
+    | 'subIconOpen.ready'
+    | 'subIconOpen.animatingIn'
+    | 'subIconOpen.animatingOut'
+    | {
+        appOpen?: 'animatingIn' | 'ready' | 'animatingOut'
+        subIconOpen?: 'ready' | 'animatingIn' | 'animatingOut'
+      }
   tags: never
 }
