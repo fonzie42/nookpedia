@@ -4,3 +4,4 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `
+export const Wrapper = styled.div``

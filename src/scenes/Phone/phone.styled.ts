@@ -1,16 +1,48 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 import {
   critterIconWrapperLeaving,
   critterIconWrapperReveal,
 } from 'styles/Animations'
 
-export const Container = styled.div`
+const fadeIn = keyframes`
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`
+
+const backgroundChange = keyframes`
+0%{
+  background: #f6f4e7;
+}
+99%{
+  background: #f6cd64;
+}
+100%{
+  background: #f6f4e7;
+}
+
+`
+
+export const Container = styled.div<{ $isAppOpen?: boolean }>`
   background: #f6f4e7;
   border-radius: 120px;
   display: flow-root;
   overflow: hidden;
   height: 100%;
+  transition: 1.5s;
+
+  ${({ $isAppOpen }) =>
+    $isAppOpen &&
+    css`
+      animation: 1.5s ${backgroundChange};
+      & > * {
+        animation: ${fadeIn} 1s ease-out;
+      }
+    `}
 `
 
 export const SizeContainer = styled.div`

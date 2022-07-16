@@ -2,7 +2,12 @@
 
 export interface Typegen0 {
   '@@xstate/typegen': true
-  eventsCausingActions: {}
+  eventsCausingActions: {
+    selectIcon: 'CLICK_ICON'
+    clearSelectedApp: 'CLOSE_APP'
+    clearSelectedIcon: 'CLOSE_SUB_ICON'
+    clickOpenApp: 'OPEN_APP'
+  }
   internalEvents: {
     'xstate.init': { type: 'xstate.init' }
   }

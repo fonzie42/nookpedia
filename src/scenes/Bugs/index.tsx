@@ -11,7 +11,7 @@ import { Hemisphere } from 'types/critterpedia'
 import { CritterpediaBugs, UserCritterPediaBugs } from 'types/critterpedia/bug'
 import { ThreeWayToggle } from 'ui/three-way-toggle'
 
-import { FilterContainer } from './styled'
+import { FilterContainer, Wrapper } from './styled'
 
 const Bugs = () => {
   const [personalCritter, setPersonalCritter] = useState<
@@ -49,7 +49,7 @@ const Bugs = () => {
   } = UseFilters({ data: personalCritter })
 
   return (
-    <div>
+    <Wrapper>
       <FilterContainer>
         {/* Donated To Museum */}
         <ThreeWayToggle
@@ -84,7 +84,7 @@ const Bugs = () => {
             }}
           />
         ))}
-    </div>
+    </Wrapper>
   )
 }
 export default Bugs
