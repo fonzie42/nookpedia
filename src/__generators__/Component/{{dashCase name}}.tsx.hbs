@@ -1,4 +1,4 @@
-import { VFC } from 'react'
+import { FC } from 'react'
 
 {{#if includeContainer}}
 import { {{> ComponentViewName}} } from './{{> ComponentViewFileName}}'
@@ -11,9 +11,9 @@ import { Wrapper } from './{{> ComponentFileName}}.styled'
 import { I{{> ComponentName}}Props } from './types'
 
 {{#if includeSkeletonLoader }}
-const {{> ComponentName}}: VFC<I{{> ComponentName}}Props> = ({ isLoading, label }) => {
+const {{> ComponentName}}: FC<I{{> ComponentName}}Props> = ({ isLoading, label }) => {
 {{else}}
-const {{> ComponentName}}: VFC<I{{> ComponentName}}Props> = ({ label }) => {
+const {{> ComponentName}}: FC<I{{> ComponentName}}Props> = ({ label }) => {
 {{/if}}
 {{#if includeContainer}}
   {{#if includeSkeletonLoader }}
