@@ -1,16 +1,48 @@
-import styled from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 
 import {
   critterIconWrapperLeaving,
   critterIconWrapperReveal,
 } from 'styles/Animations'
 
-export const Container = styled.div`
+const fadeIn = keyframes`
+0% {
+  opacity: 0;
+}
+100% {
+  opacity: 1;
+}
+`
+
+const backgroundChange = keyframes`
+0%{
+  background: #f6f4e7;
+}
+99%{
+  background: #f6cd64;
+}
+100%{
+  background: #f6f4e7;
+}
+
+`
+
+export const Container = styled.div<{ $isAppOpen?: boolean }>`
   background: #f6f4e7;
   border-radius: 120px;
   display: flow-root;
   overflow: hidden;
   height: 100%;
+  transition: 1.5s;
+
+  ${({ $isAppOpen }) =>
+    $isAppOpen &&
+    css`
+      animation: 1.5s ${backgroundChange};
+      & > * {
+        animation: ${fadeIn} 1s ease-out;
+      }
+    `}
 `
 
 export const SizeContainer = styled.div`
@@ -51,7 +83,29 @@ export const ExtraIcons = styled.div<{ animation: 'reveal' | 'leaving' }>`
 
 export const IconWrapper = styled.div<{ active?: boolean }>`
   transition: 1.5s;
+  z-index: 1;
   margin-bottom: ${(props) => (props.active ? '125px' : '0')};
+`
+
+export const Spacer = styled.div<{
+  $withShadow: boolean
+  $isAppOpen: boolean
+}>`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: #f6f4e7;
+  height: 110px;
+  z-index: 0;
+  box-shadow: ${(props) =>
+    props.$withShadow ? '#9999998a 0px 10px 6px -10px' : 'none'};
+  transition: 0.5s;
+
+  ${({ $isAppOpen }) =>
+    $isAppOpen &&
+    css`
+      animation: 1.5s ${backgroundChange};
+    `}
 `
 
 export const Header = styled.button`

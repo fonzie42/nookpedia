@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 
 import { useMachine } from '@xstate/react'
 import { FLAGS } from 'data/flags'
@@ -7,6 +7,7 @@ import Fish from 'scenes/Fish'
 
 import { CritterPediaIcon } from 'components/nook-icons'
 import { toggleMachine } from 'state/state'
+import { CloseAppAnimation } from 'ui/close-app-animation'
 
 import {
   Container,
@@ -18,20 +19,17 @@ import {
   PhoneContainer,
   PhoneRow,
   SizeContainer,
+  Spacer,
 } from './phone.styled'
 
 export const Phone: FC = () => {
   const [current, send] = useMachine(toggleMachine, { devTools: true })
 
-  const [currentOpenIcon, setCurrentOpenIcon] = useState<string | null>(null) // @todo: type this
-
-  const [openSubIcon, setOpenSubIcon] = useState<-1 | 0 | 1 | 2>(-1)
-
   const isAppOpen = current.matches('appOpen')
 
-  const isAppOpenAnimating =
-    current.matches('appOpen.animatingIn') ||
-    current.matches('appOpen.animatingOut')
+  const isAppOpenAnimating = current.matches('appOpen.animatingIn')
+
+  const isAppAnimatingOut = current.matches('appOpen.animatingOut')
 
   const shouldRenderIcons =
     current.matches('phoneIdle') ||
@@ -45,94 +43,90 @@ export const Phone: FC = () => {
 
   return (
     <SizeContainer>
-      <Container>
-        {isAppOpen && (
+      <Container $isAppOpen={isAppOpen}>
+        {isAppAnimatingOut && <CloseAppAnimation />}
+        {isAppOpen && !isAppOpenAnimating && (
           <>
-            {!isAppOpenAnimating && (
-              <>
-                <Header
-                  onClick={() => {
-                    send('CLOSE_APP')
-                    setOpenSubIcon(-1)
-                  }}
-                >
-                  Header
-                </Header>
-                <Content>
-                  <Bugs />
-                </Content>
-                <Footer>Footer</Footer>
-              </>
-            )}
+            <Header
+              onClick={() => {
+                send('CLOSE_APP')
+              }}
+            >
+              Header
+            </Header>
+            <Content>
+              {current.context.selectedApp === 'Critter' && <Bugs />}
+              {current.context.selectedApp === 'Fish' && <Fish />}
+            </Content>
+            <Footer>Footer</Footer>
           </>
         )}
 
         {shouldRenderIcons && (
           <PhoneContainer>
             <PhoneRow>
-              <IconWrapper active={currentOpenIcon === 'critter'}>
+              <IconWrapper
+                active={current.context.selectedIcon === 'Critterpedia'}
+              >
                 <CritterPediaIcon
                   onClick={() => {
                     current.matches('subIconOpen') && send('CLOSE_SUB_ICON') // @todo: should call closebutton
                     if (current.value === 'phoneIdle') {
-                      send('CLICK_ICON')
-                      setCurrentOpenIcon('critter')
+                      send('CLICK_ICON', { icon: 'Critterpedia' }) // @todo: is there a way to typecheck this?
                       return
                     }
                   }}
                 />
               </IconWrapper>
-              {shouldRenderSubIcon && currentOpenIcon === 'critter' && (
-                <ExtraIcons
-                  animation={
-                    current.matches('subIconOpen.animatingOut')
-                      ? 'leaving'
-                      : 'reveal' // @todo: improve this
-                  }
-                >
-                  {FLAGS.ENABLE_CRITTER.critter && (
-                    <CritterPediaIcon
-                      isOpeningApp={openSubIcon === 0}
-                      selectedIcon={'critter'}
-                      onClick={() => {
-                        send('OPEN_APP')
-                        setOpenSubIcon(0)
-                      }}
-                    />
-                  )}
+              <Spacer
+                $withShadow={shouldRenderSubIcon}
+                $isAppOpen={isAppOpen}
+              />
+              {shouldRenderSubIcon &&
+                current.context.selectedIcon === 'Critterpedia' && (
+                  <ExtraIcons
+                    animation={
+                      current.matches('subIconOpen.animatingOut')
+                        ? 'leaving'
+                        : 'reveal' // @todo: improve this
+                    }
+                  >
+                    {FLAGS.ENABLE_CRITTER.critter && (
+                      <CritterPediaIcon
+                        isOpeningApp={current.context.selectedApp === 'Critter'}
+                        selectedIcon={'critter'}
+                        onClick={() => {
+                          send('OPEN_APP', { app: 'Critter' })
+                        }}
+                      />
+                    )}
 
-                  {FLAGS.ENABLE_CRITTER.fish && (
-                    <CritterPediaIcon
-                      isOpeningApp={openSubIcon === 1}
-                      selectedIcon={'fish'}
-                      onClick={() => {
-                        send('OPEN_APP')
-                        setOpenSubIcon(1)
-                      }}
-                    />
-                  )}
+                    {FLAGS.ENABLE_CRITTER.fish && (
+                      <CritterPediaIcon
+                        isOpeningApp={current.context.selectedApp === 'Fish'}
+                        selectedIcon={'fish'}
+                        onClick={() => {
+                          send('OPEN_APP', { app: 'Fish' })
+                        }}
+                      />
+                    )}
 
-                  {FLAGS.ENABLE_CRITTER.seaCreature && (
-                    <CritterPediaIcon
-                      isOpeningApp={openSubIcon === 2}
-                      selectedIcon={'sea-creature'}
-                      onClick={() => {
-                        send('OPEN_APP')
-                        setOpenSubIcon(2)
-                      }}
-                    />
-                  )}
-                </ExtraIcons>
-              )}
+                    {FLAGS.ENABLE_CRITTER.seaCreature && (
+                      <CritterPediaIcon
+                        isOpeningApp={
+                          current.context.selectedApp === 'sea-creature'
+                        }
+                        selectedIcon={'sea-creature'}
+                        onClick={() => {
+                          send('OPEN_APP', { app: 'sea-creature' })
+                        }}
+                      />
+                    )}
+                  </ExtraIcons>
+                )}
             </PhoneRow>
           </PhoneContainer>
         )}
-
-        {
-          false && (
-            <Fish />
-          ) /* @todo: Fix this and better handle different apps state */
-        }
       </Container>
     </SizeContainer>
   )

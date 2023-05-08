@@ -190,7 +190,6 @@ export const critterIconWrapperReveal = keyframes`
     z-index: -1;
   }
 
-  
   99% {
     z-index: -1;
   }
