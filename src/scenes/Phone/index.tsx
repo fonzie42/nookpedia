@@ -7,6 +7,7 @@ import Fish from 'scenes/Fish'
 
 import { CritterPediaIcon } from 'components/nook-icons'
 import { toggleMachine } from 'state/state'
+import { CloseAppAnimation } from 'ui/close-app-animation'
 
 import {
   Container,
@@ -18,6 +19,7 @@ import {
   PhoneContainer,
   PhoneRow,
   SizeContainer,
+  Spacer,
 } from './phone.styled'
 
 export const Phone: FC = () => {
@@ -25,9 +27,9 @@ export const Phone: FC = () => {
 
   const isAppOpen = current.matches('appOpen')
 
-  const isAppOpenAnimating =
-    current.matches('appOpen.animatingIn') ||
-    current.matches('appOpen.animatingOut')
+  const isAppOpenAnimating = current.matches('appOpen.animatingIn')
+
+  const isAppAnimatingOut = current.matches('appOpen.animatingOut')
 
   const shouldRenderIcons =
     current.matches('phoneIdle') ||
@@ -42,6 +44,7 @@ export const Phone: FC = () => {
   return (
     <SizeContainer>
       <Container $isAppOpen={isAppOpen}>
+        {isAppAnimatingOut && <CloseAppAnimation />}
         {isAppOpen && !isAppOpenAnimating && (
           <>
             <Header
@@ -75,6 +78,10 @@ export const Phone: FC = () => {
                   }}
                 />
               </IconWrapper>
+              <Spacer
+                $withShadow={shouldRenderSubIcon}
+                $isAppOpen={isAppOpen}
+              />
               {shouldRenderSubIcon &&
                 current.context.selectedIcon === 'Critterpedia' && (
                   <ExtraIcons
@@ -106,7 +113,9 @@ export const Phone: FC = () => {
 
                     {FLAGS.ENABLE_CRITTER.seaCreature && (
                       <CritterPediaIcon
-                        isOpeningApp={false}
+                        isOpeningApp={
+                          current.context.selectedApp === 'sea-creature'
+                        }
                         selectedIcon={'sea-creature'}
                         onClick={() => {
                           send('OPEN_APP', { app: 'sea-creature' })

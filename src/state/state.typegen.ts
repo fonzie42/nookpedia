@@ -2,38 +2,50 @@
 
 export interface Typegen0 {
   '@@xstate/typegen': true
-  eventsCausingActions: {
-    selectIcon: 'CLICK_ICON'
-    clearSelectedApp: 'CLOSE_APP'
-    clearSelectedIcon: 'CLOSE_SUB_ICON'
-    clickOpenApp: 'OPEN_APP'
-  }
   internalEvents: {
+    'xstate.after(1500)#NookPhone.appOpen.animatingIn': {
+      type: 'xstate.after(1500)#NookPhone.appOpen.animatingIn'
+    }
+    'xstate.after(1500)#NookPhone.appOpen.animatingOut': {
+      type: 'xstate.after(1500)#NookPhone.appOpen.animatingOut'
+    }
+    'xstate.after(1500)#NookPhone.subIconOpen.animatingIn': {
+      type: 'xstate.after(1500)#NookPhone.subIconOpen.animatingIn'
+    }
+    'xstate.after(1500)#NookPhone.subIconOpen.animatingOut': {
+      type: 'xstate.after(1500)#NookPhone.subIconOpen.animatingOut'
+    }
     'xstate.init': { type: 'xstate.init' }
   }
   invokeSrcNameMap: {}
   missingImplementations: {
     actions: never
-    services: never
-    guards: never
     delays: never
+    guards: never
+    services: never
   }
-  eventsCausingServices: {}
-  eventsCausingGuards: {}
+  eventsCausingActions: {
+    clearSelectedApp: 'CLOSE_APP'
+    clearSelectedIcon: 'xstate.after(1500)#NookPhone.subIconOpen.animatingOut'
+    clickOpenApp: 'OPEN_APP'
+    selectIcon: 'CLICK_ICON'
+  }
   eventsCausingDelays: {}
+  eventsCausingGuards: {}
+  eventsCausingServices: {}
   matchesStates:
-    | 'phoneIdle'
     | 'appOpen'
     | 'appOpen.animatingIn'
-    | 'appOpen.ready'
     | 'appOpen.animatingOut'
+    | 'appOpen.ready'
+    | 'phoneIdle'
     | 'subIconOpen'
-    | 'subIconOpen.ready'
     | 'subIconOpen.animatingIn'
     | 'subIconOpen.animatingOut'
+    | 'subIconOpen.ready'
     | {
-        appOpen?: 'animatingIn' | 'ready' | 'animatingOut'
-        subIconOpen?: 'ready' | 'animatingIn' | 'animatingOut'
+        appOpen?: 'animatingIn' | 'animatingOut' | 'ready'
+        subIconOpen?: 'animatingIn' | 'animatingOut' | 'ready'
       }
   tags: never
 }

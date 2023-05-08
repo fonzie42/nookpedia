@@ -70,7 +70,6 @@ export const toggleMachine =
               on: {
                 CLOSE_SUB_ICON: {
                   target: 'animatingOut',
-                  actions: ['clearSelectedIcon'],
                 },
                 OPEN_APP: {
                   target: '#NookPhone.appOpen.animatingIn',
@@ -89,6 +88,7 @@ export const toggleMachine =
               after: {
                 '1500': {
                   target: '#NookPhone.phoneIdle',
+                  actions: ['clearSelectedIcon'],
                 },
               },
             },

@@ -83,7 +83,29 @@ export const ExtraIcons = styled.div<{ animation: 'reveal' | 'leaving' }>`
 
 export const IconWrapper = styled.div<{ active?: boolean }>`
   transition: 1.5s;
+  z-index: 1;
   margin-bottom: ${(props) => (props.active ? '125px' : '0')};
+`
+
+export const Spacer = styled.div<{
+  $withShadow: boolean
+  $isAppOpen: boolean
+}>`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background: #f6f4e7;
+  height: 110px;
+  z-index: 0;
+  box-shadow: ${(props) =>
+    props.$withShadow ? '#9999998a 0px 10px 6px -10px' : 'none'};
+  transition: 0.5s;
+
+  ${({ $isAppOpen }) =>
+    $isAppOpen &&
+    css`
+      animation: 1.5s ${backgroundChange};
+    `}
 `
 
 export const Header = styled.button`

@@ -14,6 +14,6 @@ export const Wrapper = styled.div<{ $isOpen?: boolean }>`
     css`
       transition: 2s;
       transform: scale(10);
-      z-index: 2;
+      z-index: 10;
     `}
 `
