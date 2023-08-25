@@ -11,7 +11,7 @@ function TableItem<T extends UserCritterPediaData>({
     <Container>
       <ItemButton onClick={openCritterCallback}>
         <ItemImage
-          src={process.env.PUBLIC_URL + `/assets/icons${critter.filePath}.png`}
+          src={`src/assets/icons${critter.filePath}.png`}
           alt={critter.name['en-US']}
         />
       </ItemButton>

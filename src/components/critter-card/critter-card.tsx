@@ -35,7 +35,7 @@ const CritterCard = <T extends UserCritterPediaData>({
   return (
     <Card>
       <CritterImage
-        src={process.env.PUBLIC_URL + `/assets/images${critter.filePath}.png`}
+        src={`src/assets/images${critter.filePath}.png`}
         alt={critter.name[locale]}
       />
       <CardTitle>
