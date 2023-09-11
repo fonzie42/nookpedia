@@ -7,7 +7,7 @@ import {
   seaCreatureSwimming,
   wingsFlapping,
 } from 'styles/Animations'
-import { AnimatedBackground } from 'ui/animated-background/base.styled'
+import { AnimatedBackground } from 'animations/background/base.styled'
 
 const buttonSize = '95px'
 
