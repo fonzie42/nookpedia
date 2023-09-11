@@ -110,7 +110,7 @@ export const Spacer = styled.div<{
 
 export const Header = styled.button`
   height: 120px;
-  background: red;
+  background: #f6cd64;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -119,7 +119,7 @@ export const Header = styled.button`
 
 export const Footer = styled.div`
   height: 120px;
-  background: red;
+  background: #f6cd64;
 `
 
 export const Content = styled.div`
