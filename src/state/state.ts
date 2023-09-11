@@ -41,7 +41,7 @@ export const toggleMachine =
           states: {
             animatingIn: {
               after: {
-                '1500': {
+                '500': {
                   target: 'ready',
                 },
               },
@@ -79,7 +79,7 @@ export const toggleMachine =
             },
             animatingIn: {
               after: {
-                '1500': {
+                '0': {
                   target: 'ready',
                 },
               },

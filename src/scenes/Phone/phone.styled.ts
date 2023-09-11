@@ -5,6 +5,16 @@ import {
   critterIconWrapperReveal,
 } from 'styles/Animations'
 
+export const basePhoneSize = css`
+  // @todo: this should be changed according to display size
+  width: 360px;
+  height: 720px;
+`
+
+export const phoneBorderRadius = css`
+  border-radius: 120px;
+`
+
 const fadeIn = keyframes`
 0% {
   opacity: 0;
@@ -28,27 +38,17 @@ const backgroundChange = keyframes`
 `
 
 export const Container = styled.div<{ $isAppOpen?: boolean }>`
+  ${phoneBorderRadius}
   background: #f6f4e7;
-  border-radius: 120px;
   display: flow-root;
   overflow: hidden;
   height: 100%;
   transition: 1.5s;
-
-  ${({ $isAppOpen }) =>
-    $isAppOpen &&
-    css`
-      animation: 1.5s ${backgroundChange};
-      & > * {
-        animation: ${fadeIn} 1s ease-out;
-      }
-    `}
 `
 
 export const SizeContainer = styled.div`
-  // @todo: this should be changed according to display size
-  width: 360px;
-  height: 720px;
+  ${basePhoneSize}
+
   position: relative;
 `
 
@@ -110,7 +110,7 @@ export const Spacer = styled.div<{
 
 export const Header = styled.button`
   height: 120px;
-  background: red;
+  background: #f6cd64;
   padding: 0;
   margin: 0;
   width: 100%;
@@ -119,7 +119,7 @@ export const Header = styled.button`
 
 export const Footer = styled.div`
   height: 120px;
-  background: red;
+  background: #f6cd64;
 `
 
 export const Content = styled.div`

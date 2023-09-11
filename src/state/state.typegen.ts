@@ -3,17 +3,17 @@
 export interface Typegen0 {
   '@@xstate/typegen': true
   internalEvents: {
-    'xstate.after(1500)#NookPhone.appOpen.animatingIn': {
-      type: 'xstate.after(1500)#NookPhone.appOpen.animatingIn'
+    'xstate.after(0)#NookPhone.subIconOpen.animatingIn': {
+      type: 'xstate.after(0)#NookPhone.subIconOpen.animatingIn'
     }
     'xstate.after(1500)#NookPhone.appOpen.animatingOut': {
       type: 'xstate.after(1500)#NookPhone.appOpen.animatingOut'
     }
-    'xstate.after(1500)#NookPhone.subIconOpen.animatingIn': {
-      type: 'xstate.after(1500)#NookPhone.subIconOpen.animatingIn'
-    }
     'xstate.after(1500)#NookPhone.subIconOpen.animatingOut': {
       type: 'xstate.after(1500)#NookPhone.subIconOpen.animatingOut'
+    }
+    'xstate.after(500)#NookPhone.appOpen.animatingIn': {
+      type: 'xstate.after(500)#NookPhone.appOpen.animatingIn'
     }
     'xstate.init': { type: 'xstate.init' }
   }

@@ -7,7 +7,7 @@ import Fish from 'scenes/Fish'
 
 import { CritterPediaIcon } from 'components/nook-icons'
 import { toggleMachine } from 'state/state'
-import { CloseAppAnimation } from 'ui/close-app-animation'
+import { CloseApp } from 'animations/close-app'
 
 import {
   Container,
@@ -21,6 +21,7 @@ import {
   SizeContainer,
   Spacer,
 } from './phone.styled'
+import { OpenAppReveal } from 'animations/open-app'
 
 export const Phone: FC = () => {
   const [current, send] = useMachine(toggleMachine, { devTools: true })
@@ -44,9 +45,10 @@ export const Phone: FC = () => {
   return (
     <SizeContainer>
       <Container $isAppOpen={isAppOpen}>
-        {isAppAnimatingOut && <CloseAppAnimation />}
+        {isAppAnimatingOut && <CloseApp />}
         {isAppOpen && !isAppOpenAnimating && (
           <>
+            <OpenAppReveal />
             <Header
               onClick={() => {
                 send('CLOSE_APP')

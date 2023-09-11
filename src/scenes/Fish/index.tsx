@@ -68,17 +68,18 @@ const Fish = () => {
       />
       {filteredData.length}
       <CritterTable data={personalCritter} />
-      {filteredData.map((bug) => (
-        <CritterCard
-          critter={bug}
-          hemisphere={Hemisphere.SOUTHERN}
-          locale={'en-US'}
-          key={bug.id}
-          updateCritterCallback={(updatedBug) => {
-            setPersonalCritter(updateCritter(updatedBug, personalCritter))
-          }}
-        />
-      ))}
+      {false &&
+        filteredData.map((bug) => (
+          <CritterCard
+            critter={bug}
+            hemisphere={Hemisphere.SOUTHERN}
+            locale={'en-US'}
+            key={bug.id}
+            updateCritterCallback={(updatedBug) => {
+              setPersonalCritter(updateCritter(updatedBug, personalCritter))
+            }}
+          />
+        ))}
     </div>
   )
 }
