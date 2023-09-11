@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-export const Wrapper = styled.div<{ $isOpen?: boolean }>`
+export const OverlayExpand = styled.div<{ $isOpen?: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@ export const Wrapper = styled.div<{ $isOpen?: boolean }>`
   ${({ $isOpen }) =>
     $isOpen &&
     css`
-      transition: 2s;
+      transition: 0.75s ease-in;
       transform: scale(10);
       z-index: 10;
     `}

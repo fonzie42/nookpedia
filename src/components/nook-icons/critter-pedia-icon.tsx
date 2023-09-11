@@ -5,7 +5,7 @@ import fishIcon from 'assets/nookIcons/fish.png'
 import seaCreatureIcon from 'assets/nookIcons/sea_creature.png'
 
 import { BackgroundPolka, BackgroundRipple } from 'animations/background'
-import { OpenAppAnimation } from 'ui/open-app-animation'
+import { OpenAppOverlay } from 'animations/open-app'
 
 import {
   CritterImage,
@@ -30,7 +30,7 @@ const CritterPediaIcon: FC<CritterPediaIconProps> = ({
 
   return (
     <Wrapper>
-      <OpenAppAnimation isOpen={isOpeningApp} />
+      <OpenAppOverlay isOpen={isOpeningApp} />
       <CritterPediaButton onClick={onClick} animation={animation}>
         {shouldRenderCritter && (
           <CritterImage
