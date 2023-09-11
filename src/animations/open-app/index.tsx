@@ -1,1 +1,1 @@
-export { OpenAppOverlay } from './open-app'
+export { OpenAppOverlay, OpenAppReveal } from './open-app'

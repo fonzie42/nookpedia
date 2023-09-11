@@ -21,6 +21,7 @@ import {
   SizeContainer,
   Spacer,
 } from './phone.styled'
+import { OpenAppReveal } from 'animations/open-app'
 
 export const Phone: FC = () => {
   const [current, send] = useMachine(toggleMachine, { devTools: true })
@@ -47,6 +48,7 @@ export const Phone: FC = () => {
         {isAppAnimatingOut && <CloseApp />}
         {isAppOpen && !isAppOpenAnimating && (
           <>
+            <OpenAppReveal />
             <Header
               onClick={() => {
                 send('CLOSE_APP')
