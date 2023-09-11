@@ -9,6 +9,8 @@ import {
 } from 'styles/Animations'
 import { AnimatedBackground } from 'ui/animated-background/base.styled'
 
+const buttonSize = '95px'
+
 const revealAnimation = css`
   animation: ${critterIconReveal} 2s;
 `
@@ -18,8 +20,8 @@ const leavingAnimation = css`
 
 export const Wrapper = styled.div`
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: ${buttonSize};
+  height: ${buttonSize};
 `
 
 export const CritterImage = styled.img<{
@@ -83,8 +85,8 @@ export const CritterPediaButton = styled.button<{
 }>`
   position: relative;
   border-radius: 25%;
-  width: 100px;
-  height: 100px;
+  width: ${buttonSize};
+  height: ${buttonSize};
   overflow: hidden;
   padding: 0;
   border: none;
